@@ -125,31 +125,33 @@ namespace OPWAPP2.Controllers
             base.Dispose(disposing);
         }
 
-
-        public ActionResult Login()
-        {
-            return View();
-        }
-
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(Authorisation objUser)
+        public ActionResult Authorise(OPWAPP2.Models.Authorisation userModel)
         {
-            if (ModelState.IsValid)
+            using (OPWContext2 db = new OPWContext2())
             {
-                using (OPWContext2 Logincontext = new OPWContext2())
+                var userDetails = db.Opwauthorisation2.Where(x => x.User_Name == userModel.User_Name && x.User_Password == userModel.User_Password).FirstOrDefault();
+                if (userDetails == null)
                 {
-                    var obj = db.Opwauthorisation2.Where(a => a.User_Name.Equals(objUser.User_Name) && a.User_Password.Equals(objUser.User_Password)).FirstOrDefault();
-                    if (obj != null)
-                    {
-                        Session["UserID"] = obj.User_ID.ToString();
-                        Session["UserName"] = obj.User_Name.ToString();
-                        return RedirectToAction("UserDashBoard");
-                    }
+                    userModel.LoginErrorMessage = "Wrong username or password.";
+                    return View("Index", userModel);
+                }
+                else
+                {
+                    Session["userID"] = userDetails.User_ID;
+                    Session["userName"] = userDetails.User_Name;
+                    return RedirectToAction("UserDashBoard", "Authorisation");
                 }
             }
-            return View(objUser);
         }
+
+        public ActionResult LogOut()
+        {
+            int userId = (int)Session["userID"];
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
+        }
+
 
         public ActionResult UserDashBoard()
         {
@@ -162,45 +164,6 @@ namespace OPWAPP2.Controllers
                 return RedirectToAction("Login");
             }
         }
-
-
-                                    
-        /* public ActionResult login(Authorisation username, Authorisation password)
-         {
-             if (username == null)
-             {
-                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "No Username submitted");
-             }
-             else if (password == null)
-             {
-                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "No password submitted");
-             }
-
-             var x = username.ToString();
-             var y = password.ToString();
-             Authorisation A1 = db.opw_authorisation2.FirstOrDefault(p => p.User_Name.Contains(x));
-
-             if (A1 == null)
-             {
-                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Incorrect UserName submitted, Please try again");
-             }
-             if (A1.User_Password != y)
-             {
-                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Incorrect Password submitted, Please try again");
-             }
-
-             return View(A1);
-         }
-         */
-
-
-
-
-
-
-
-
-
 
     }
 }

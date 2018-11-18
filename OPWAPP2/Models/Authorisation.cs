@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -39,17 +40,22 @@ namespace OPWAPP2.Models
         private readonly string user_Password;
         */
         private const double AutoAppLimit = 1000;
+        internal string LoginErrorMessage;
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int User_ID { get; set; }
 
-        [Required]
         [Column("User")]
+        [DisplayName("User Name ")]
+        [Required(ErrorMessage = "This field is required.")]
         public string User_Name { get; set; }
-        [Required]
+
+
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "This field is required.")]
         [StringLength(80, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 8)]
-        [Column("Password")]
+        [Column("Password ")]
         public string User_Password { get; set; }
 
         [Required]
@@ -69,7 +75,7 @@ namespace OPWAPP2.Models
         [Column("DEPT-Code")]
         public User_Section_Code Usersectcode { get; set; }
 
-        // Up to €750 is Auto approved.
+        // Up to €1000 is Auto approved.
         [Required]
         [Column("Approval limit")]
         // [Range(0, 1000000)]
