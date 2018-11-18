@@ -1,0 +1,33 @@
+          using System.ComponentModel.DataAnnotations;
+[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+[Key]– Defines a Primary Key
+[ForeignKey("AuthorId")]   – Defines a Foreign Key on AuthorID
+[Required]   – Defines a Required table field
+[Required(ErrorMessage = "Invalid Ticker Symbol")]                       
+[Range(0.00001, Double.MaxValue)]       – Defines a valid value range 
+[Required]
+[Phone]
+[MaxLength(140)]– Max length for property
+[MinLength(1)] – Min length for a property
+[Column] – Defines column name in a table
+[Table] – Defines table name for a class
+[Display(Name = "Science Student.")]
+
+ 
+		 Routing
+[RoutePrefix("Api/Movies")]
+[Route("ByKeyword/{Keyword}")]
+          Testing
+[TestMethod()]
+[ExpectedException(typeof(ArgumentOutOfRangeException))]
+
+
+           Nuget Package Manager - Shell Commands
+Install-Package EntityFramework
+Install-Package Microsoft.AspNet.WebApi.Client
+
+LinQ
+
+https://www.c-sharpcorner.com/article/simple-login-application-using-Asp-Net-mvc/
+
+

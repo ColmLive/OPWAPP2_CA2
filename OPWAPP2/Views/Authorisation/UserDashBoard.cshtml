@@ -1,0 +1,16 @@
+﻿@model OPWAPP2.Models.Authorisation
+
+@{
+    ViewBag.Title = "UserDashBoard";
+ }
+
+
+<fieldset>
+        <legend> User DashBoard </legend>
+
+        @if (Session["User_Name"] != null)
+        {
+            <text > Welcome @Session["User_Name"].ToString() </text>
+        } 
+</fieldset>
+
