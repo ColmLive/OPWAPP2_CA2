@@ -1,0 +1,67 @@
+https://tutorials.visualstudio.com/vs-get-started/intro
+https://docs.microsoft.com/en-us/visualstudio/ide/getting-started-with-cpp-in-visual-studio?view=vs-2017
+http://www.csharp-examples.net/  
+https://www.guru99.com/c-sharp-tutorial.html    
+https://www.tutorialspoint.com/csharp
+http://dermotb.blogspot.com/     
+https://blog.sqlauthority.com/
+https://csharp.hotexamples.com/
+http://www.tutorialsteacher.com/
+
+GitHub
+-- Install VS Extension
+https://aka.ms/ghfvs
+https://github.com/github/VisualStudio/issues/1531
+
+HTTP 
+https://www.google.ie/search?q=idempotent+http+methods&rlz=1C1CHBD_enIE734IE734&oq=idempotent&aqs=chrome.3.69i57j0l5.6615j0j8&sourceid=chrome&ie=UTF-8
+http://restcookbook.com/HTTP%20Methods/idempotency/
+
+
+Web API
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
+
+Viewbag
+https://www.c-sharpcorner.com/UploadFile/54db21/what-is-viewbag/
+https://stackify.com/viewbag/
+
+Test Units
+Install-Package Microsoft.VisualStudio.UnitTesting -Version 11.0.50727.1
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+https://docs.microsoft.com/en-us/visualstudio/test/unit-test-your-code?view=vs-2017
+https://blogs.msdn.microsoft.com/mvpawardprogram/2014/05/05/creating-unit-test-for-projects-using-microsofts-entity-framework/
+-- Good Overview 
+https://www.youtube.com/watch?v=XXABNzudQLQ
+https://www.youtube.com/watch?v=2qudsVHJfa8
+
+PostAsJsonSync
+https://welcometorsi.net/RoomKeyApi/Home/CSharpDotNetSampleClient
+
+PutAsJsonSync
+https://support.discountasp.net/kb/a1358/405-method-not-allowed-error-with-put-or-delete-request-on-asp_net-application.aspx
+https://www.c-sharpcorner.com/blogs/resolve-quotthe-server-responded-with-a-status-of-405-method-not-allowedquot-error-in-web-api
+
+Consume Web API in .NET using HttpClient
+http://www.tutorialsteacher.com/webapi/consuming-web-api-in-dotnet-using-httpclient
+    	
+		for CRUD
+Implement Get Method
+Implement Post Method
+Implement Put Method
+Implement Delete Method
+Consume Web API
+Consume Get Method
+Consume Post Method
+Consume Put Method
+Consume Delete Method
+HttpClient
+Dependency Injection
+Web API Hosting
+Useful Resources
+
+Code First Migrations / Connections
+https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/migrations/index
+https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/
+https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/creating-a-connection-string
+https://petermcintyre.com/topics/aspnet-mvc-fix-cannot-attach-the-file-as-database/
+ 
