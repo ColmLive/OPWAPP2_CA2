@@ -26,7 +26,7 @@ namespace OPWAPP2.DAL
             };
             authorisation.ForEach(s => context.Opwauthorisation2.Add(s));
             context.SaveChanges();
-            /*
+            /* (CJC)
               
              try
             {
