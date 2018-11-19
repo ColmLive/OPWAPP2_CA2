@@ -26,6 +26,11 @@ namespace OPWAPP2.Controllers
             return View();
         }
 
-       
+        public ActionResult Login()
+        {
+            ViewBag.Message = "Open OPWAPP Login page.";
+
+            return View();
+        }
     }
 }

@@ -231,9 +231,10 @@
     <Content Include="Views\Work\Details.cshtml" />
     <Content Include="Views\Work\Edit.cshtml" />
     <Content Include="Views\Work\Index.cshtml" />
-    <Content Include="Views\Authorisation\Login.cshtml" />
     <Content Include="Views\Property\PropertyList.cshtml" />
     <Content Include="Views\Authorisation\UserDashBoard.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Authorisation\Authorise.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
