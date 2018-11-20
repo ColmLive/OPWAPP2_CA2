@@ -1,0 +1,18 @@
+﻿@model OPWAPP2.Models.Authorisation
+
+@{
+    ViewBag.Title = "AdminDashBoard";
+}
+
+<body>
+    <H2> Administrator DashBoard </H2>
+
+
+    @if (Session["UserName"] != null)
+    {
+        <text> Welcome Administrator -  @Session["UserName"].ToString() </text>
+
+    }
+
+</body>
+

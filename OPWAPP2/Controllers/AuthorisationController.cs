@@ -141,7 +141,38 @@ namespace OPWAPP2.Controllers
                 {
                     Session["userID"] = userDetails.User_ID;
                     Session["userName"] = userDetails.User_Name;
-                    return RedirectToAction("UserDashBoard", "Authorisation");
+                    //OPW Users
+                    if (userDetails.Usersect == User_Section.MandE_Works)
+                    {
+                    return RedirectToAction("MEDashBoard", "Authorisation");
+                    }
+                    else if (userDetails.Usersect == User_Section.Elective_Works)
+                    {
+                    return RedirectToAction("EWDashBoard", "Authorisation");
+                    }
+                    else if (userDetails.Usersect == User_Section.Capital_works)
+                    {
+                    return RedirectToAction("CWDashBoard", "Authorisation");
+                    }
+                    else if (userDetails.Usersect == User_Section.Storage)
+                    {
+                    return RedirectToAction("StorageDashBoard", "Authorisation");
+                    }
+                    // DEASP Approvers
+                    else if (userDetails.Usersect == User_Section.Accommodation)
+                    {
+                    return RedirectToAction("AccomDashBoard", "Authorisation");
+                    }
+                    else if (userDetails.Usersect == User_Section.Finance)
+                    {
+                    return RedirectToAction("FinanceDashBoard", "Authorisation");
+                    }
+                    //Adminstrators
+                    else if (userDetails.Usersect == User_Section.Admin)
+                    {
+                    return RedirectToAction("AdminDashBoard", "Authorisation");
+                    }
+                    return View("Index", userModel);
                 }
             }
         }
@@ -158,13 +189,29 @@ namespace OPWAPP2.Controllers
         {
             if (Session["UserID"] != null)
             {
+             return View();
+            }
+            
+            return RedirectToAction("Login");
+        }
+
+        public ActionResult AdminDashBoard()
+        {
+            if (Session["UserID"] != null)
+            {
                 return View();
             }
-            else
-            {
-                return RedirectToAction("Login");
-            }
+
+            return RedirectToAction("Login");
         }
+
+
+
+
+
+
+
+
 
     }
 }

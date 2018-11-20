@@ -1,0 +1,18 @@
+﻿@model OPWAPP2.Models.Authorisation
+
+@{
+    ViewBag.Title = "StorageDashBoard";
+}
+
+<body>
+    <H2> Storage User DashBoard </H2>
+
+
+    @if (Session["UserName"] != null)
+    {
+        <text> Welcome Storage User -  @Session["UserName"].ToString() </text>
+
+    }
+
+</body>
+
