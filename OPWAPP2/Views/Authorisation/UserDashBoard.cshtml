@@ -4,13 +4,14 @@
     ViewBag.Title = "UserDashBoard";
  }
 
+<body>
+    <H2> User DashBoard </H2>
+   
 
-<fieldset>
-        <legend> User DashBoard </legend>
+    @if (Session["UserName"] != null)
+    {
+        <text> Welcome @Session["UserName"].ToString() </text>
 
-        @if (Session["User_Name"] != null)
-        {
-            <text > Welcome @Session["User_Name"].ToString() </text>
-        } 
-</fieldset>
+    }
 
+</body>

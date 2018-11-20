@@ -5,17 +5,20 @@
 
 
 
+
 <div class="jumbotron">
+
+       <div class="Container">
     <h2><strong>The Department of Employment and Social Protection</strong></h2>
     <div class="row">
-        <div class="w3-half w3-section" style="max-width:25em">
-            <img class="mySlides" src="~/Resources/AMD.jpg" alt="AMD Image" style="width:100%">
-            <img class="mySlides" src="~/Resources/Balbriggan.jpg" alt="Balbriggan" style="width:100%">
-            <img class="mySlides" src="~/Resources/Clondalkin.jpg" alt="Clondalkin" style="width:100%">
-            <img class="mySlides" src="~/Resources/Cork Abbeycourt.jpg" alt="Cork Abbeycourt" style="width:100%">
-            <img class="mySlides" src="~/Resources/Longford Intreo.jpg" alt="Longford" style="width:100%">
-            <img class="mySlides" src="~/Resources/Tallaght.jpg" alt="Tallaght" style="width:100%">
-            <img class="mySlides" src="~/Resources/AMD View.jpg" alt="AMD Image" style="width:100%">
+        <div class="w3-half w3-section" pull-Left img-responsivestyle="max-width:25em">
+            <img class="mySlides" src="~/Resources/AMD.jpg" alt="AMD Image" style="width:50%">
+            <img class="mySlides" src="~/Resources/Balbriggan.jpg" alt="Balbriggan" style="width:50%">
+            <img class="mySlides" src="~/Resources/Clondalkin.jpg" alt="Clondalkin" style="width:50%">
+            <img class="mySlides" src="~/Resources/Cork Abbeycourt.jpg" alt="Cork Abbeycourt" style="width:50%">
+            <img class="mySlides" src="~/Resources/Longford Intreo.jpg" alt="Longford" style="width:50%">
+            <img class="mySlides" src="~/Resources/Tallaght.jpg" alt="Tallaght" style="width:50%">
+            <img class="mySlides" src="~/Resources/AMD View.jpg" alt="AMD Image" style="width:50%">
 
             <script>
                 var myIndex = 0;
@@ -29,14 +32,14 @@
                     }
                     myIndex++;
                     if (myIndex > x.length) { myIndex = 1 }
-                    x[myIndex - 1].style.display = "inLine";
+                    x[myIndex - 1].style.display = "inline";
                     setTimeout(carousel, 5000); // Change image every 5 seconds
                 }
             </script>
         </div>
 
-        <!--
-        <div class="w3-half-2 w3-section pull-right img-responsive" style="max-width:20em">
+
+        <div class="w3-half-2 w3-section pull-right img-responsive" style="width:30%" display =" inline">
             <article class="float_right">
                 <h3><strong>DEASP - OPWAPP</strong></h3>
                 <img src="~/Resources/Cartoon Builder.jpg" alt="Cartoon Builder">
@@ -46,7 +49,7 @@
             </article>
         </div>
 
-             -->
+    </div>      
 
     </div>
 </div>
