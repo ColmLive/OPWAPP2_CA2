@@ -21,6 +21,16 @@ namespace OPWAPP2.Controllers
             var opwwork2 = db.Opwwork2.Include(w => w.Authorisation);
             return View(opwwork2.ToList());
         }
+        public ActionResult WorksforApproval()
+        {
+            var opwwork2 = db.Opwwork2.Include(w => w.Authorisation);
+            return View(opwwork2.ToList());
+        }
+        public ActionResult ApprovalWorks()
+        {
+            var opwwork2 = db.Opwwork2.Include(w => w.Authorisation);
+            return View(opwwork2.ToList());
+        }
 
         // GET: Work/Details/5
         public ActionResult Details(int? id)

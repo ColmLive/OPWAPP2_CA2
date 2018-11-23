@@ -17,12 +17,11 @@ namespace OPWAPP2.DAL
             {
             new Authorisation{User_Name = "John Lee", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Admin ,Email="jlee@opw.com"},
             new Authorisation{User_Name = "Jeff Holding", User_Password = "12345678", Company = User_Company.OPW, Usersect = User_Section.Elective_Works,Email="jholding@opw.com" },
-            new Authorisation{User_Name = "Colm Carberry", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Admin,Email="ccarberry@opw.com"},
+            new Authorisation{User_Name = "Colm Carberry", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Admin, Email="ccarberry@opw.com"},
             new Authorisation{User_Name = "Paul Colemen", User_Password = "12345678", Company = User_Company.OPW, Usersect = User_Section.Storage,Email="pcolemen@opw.com" },
             new Authorisation{User_Name = "Tim Allen", User_Password = "12345678", Company = User_Company.OPW, Usersect = User_Section.MandE_Works ,Email="tallen@opw.com"},
             new Authorisation{User_Name = "Declan Cullen", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Accommodation,Email="dcullen@opw.com"},
             new Authorisation{User_Name = "Sinead Murphy", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Finance ,Email="smurphy@opw.com"}
-
             };
             authorisation.ForEach(s => context.Opwauthorisation2.Add(s));
             context.SaveChanges();

@@ -162,6 +162,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\opwapp2.mdf" />
+    <Content Include="App_Data\opwapp2_log.ldf">
+      <DependentUpon>opwapp2.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -238,13 +242,13 @@
     <Content Include="Views\Authorisation\AdminDashBoard.cshtml" />
     <Content Include="Views\Authorisation\AccomDashBoard.cshtml" />
     <Content Include="Views\Authorisation\EWDashBoard.cshtml" />
-    <Content Include="Views\Authorisation\CWDashBoard.cshtml" />
     <Content Include="Views\Authorisation\StorageDashBoard.cshtml" />
     <Content Include="Views\Authorisation\FinanceDashBoard.cshtml" />
+    <Content Include="Views\Authorisation\CWDashBoard.cshtml" />
+    <Content Include="Views\Work\WorksforApproval.cshtml" />
+    <Content Include="Views\Work\ApprovalWorks.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

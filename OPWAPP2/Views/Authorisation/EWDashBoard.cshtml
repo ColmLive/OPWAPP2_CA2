@@ -13,89 +13,29 @@
         <text> Welcome Elective_Works Staff -  @Session["UserName"].ToString() </text>
     }
 
-    <h4>Authorisation</h4>
+    <
+
+
+    <br />
+    <h4>List of Tasks</h4> <img class="mySlides" src="~/Resources/Men at work cartoon.jpg" alt="AMD Image" style="width:50%">
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.User_Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.User_Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.User_Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.User_Password)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Company)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Company)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usersect)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usersect)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usersectcode)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usersectcode)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.User_Approval_Limit)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.User_Approval_Limit)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.WorkId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.WorkId)
-        </dd>
-
-    </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.User_ID }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-
-
-
-
-
-
-
-
-
-
-
+    <ol>
+        <li>
+        Create new DEASP works requests for approval and funding <button type="button" onclick="location.href='@Url.Action("Create(work)","Work")'">New Works Request</button>
+        <br />
+        </li>
+        <li>
+        List DEASP works requests Awaiting approval <button type="button" onclick="location.href='@Url.Action("WorksforApproval","Work")'">New Works Request</button>
+        <br />
+        </li>
+        <li>
+        List DEASP works requests Awaiting Funding <button type="button" onclick="location.href='@Url.Action("Index","Work")'">New Works Request</button>
+        <br />
+        </li>
+        <li>
+        List DEASP works requests Awaiting approval <button type="button" onclick="location.href='@Url.Action("Index","Work")'">New Works Request</button>
+        <br />
+        </li>
+    </ol>
 </body>
 

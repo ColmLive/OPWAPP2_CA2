@@ -125,6 +125,7 @@ namespace OPWAPP2.Controllers
             base.Dispose(disposing);
         }
 
+        // Login model and redirection to user views (JL)
         [HttpPost]
         public ActionResult Authorise(OPWAPP2.Models.Authorisation userModel)
 
@@ -184,8 +185,9 @@ namespace OPWAPP2.Controllers
             return RedirectToAction("Index", "Login");
         }
 
+        // OPW Users x 4 types Login View Controllers
 
-        public ActionResult UserDashBoard()
+        public ActionResult EWDashBoard()
         {
             if (Session["UserID"] != null)
             {
@@ -195,7 +197,60 @@ namespace OPWAPP2.Controllers
             return RedirectToAction("Login");
         }
 
-        public ActionResult AdminDashBoard()
+
+        public ActionResult MEDashBoard()
+        {
+            if (Session["UserID"] != null)
+            {
+                return View();
+            }
+
+            return RedirectToAction("Login");
+        }
+
+        public ActionResult CWDashBoard()
+        {
+            if (Session["UserID"] != null)
+            {
+                return View();
+            }
+
+            return RedirectToAction("Login");
+        }
+                                 
+        public ActionResult StorageDashBoard()
+        {
+            if (Session["UserID"] != null)
+            {
+                return View();
+            }
+
+            return RedirectToAction("Login");
+        }
+
+        // Deasp Users x 2 types Login View Controllers (JL)
+        public ActionResult AccomDashBoard()
+        {
+            if (Session["UserID"] != null)
+            {
+                return View();
+            }
+
+            return RedirectToAction("Login");
+        }
+
+        public ActionResult FinanceDashBoard()
+        {
+            if (Session["UserID"] != null)
+            {
+                return View();
+            }
+
+            return RedirectToAction("Login");
+        }
+
+        // Admin Login View Controllers (JL)                            
+         public ActionResult AdminDashBoard()
         {
             if (Session["UserID"] != null)
             {
