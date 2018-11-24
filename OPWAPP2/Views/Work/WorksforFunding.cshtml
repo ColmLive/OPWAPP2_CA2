@@ -1,0 +1,66 @@
+﻿@model IEnumerable<OPWAPP2.Models.Work>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WorksforApproval</title>
+</head>
+<body>
+   
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Property_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proj_Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Project_Desc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proj_budget_Requested)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+
+            </th>
+
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Property_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proj_Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Project_Desc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proj_budget_Requested)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+               
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

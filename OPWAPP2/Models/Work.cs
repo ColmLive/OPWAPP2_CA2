@@ -11,6 +11,7 @@ namespace OPWAPP2.Models
     {
         [Display(Name = "Pending Approval")] Pending_Approval,
         [Display(Name = "Approved")] Approved,
+        [Display(Name = "Pending Funding")] PendingFunding,
         [Display(Name = "Funded")] Funded,
         [Display(Name = "Closed")] Closed
     }

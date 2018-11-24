@@ -71,6 +71,8 @@ namespace OPWAPP2.DAL
             new Work{Property_ID = "B0034",User_ID = 1, Proj_Code = "001",Project_Desc= "fix sink" , Proj_budget_Requested = 2000, Status = Status.Pending_Approval},
             new Work{Property_ID = "B1000",User_ID = 2, Proj_Code = "001",Project_Desc= "fix Alarm" , Proj_budget_Requested = 2600, Status = Status.Pending_Approval},
             new Work{Property_ID = "B1234",User_ID = 3, Proj_Code = "002",Project_Desc= "fix ticket system" ,Proj_budget_Requested = 5000, Status = Status.Pending_Approval},
+            new Work{Property_ID = "B1234",User_ID = 3, Proj_Code = "002",Project_Desc= "DIY" ,Proj_budget_Requested = 5000, Status = Status.Approved},
+            new Work{Property_ID = "B1000",User_ID = 2, Proj_Code = "001",Project_Desc= "DIY 2" , Proj_budget_Requested = 2600, Status = Status.Funded},
             };
             works.ForEach(w => context.Opwwork2.Add(w));
             context.SaveChanges();

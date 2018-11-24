@@ -247,6 +247,7 @@
     <Content Include="Views\Authorisation\CWDashBoard.cshtml" />
     <Content Include="Views\Work\WorksforApproval.cshtml" />
     <Content Include="Views\Work\ApprovalWorks.cshtml" />
+    <Content Include="Views\Work\WorksforFunding.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

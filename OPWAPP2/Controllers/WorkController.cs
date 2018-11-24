@@ -23,9 +23,17 @@ namespace OPWAPP2.Controllers
         }
         public ActionResult WorksforApproval()
         {
-            var opwwork2 = db.Opwwork2.Include(w => w.Authorisation);
-            return View(opwwork2.ToList());
+        var opwwork2 = db.Opwwork2.Include(w => w.Authorisation.Usersect == User_Section.Elective_Works && w.Status == Status.Pending_Approval);
+        return View(opwwork2.ToList());
         }
+
+        public ActionResult WorksforFunding()
+        {
+        var opwwork2 = db.Opwwork2.Include(w => w.Authorisation.Usersect == User_Section.Elective_Works && w.Status == Status.PendingFunding);
+        return View(opwwork2.ToList());
+        }
+
+
         public ActionResult ApprovalWorks()
         {
             var opwwork2 = db.Opwwork2.Include(w => w.Authorisation);
