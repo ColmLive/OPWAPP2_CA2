@@ -30,6 +30,7 @@ namespace OPWAPP2.Models
         //[ForeignKey("User_ID")]
         public int User_ID { get; set; }
 
+    
         [Required]
         // [ConcurrencyCheck, MaxLength(3, ErrorMessage = "Project code must be 3 Char long."), MinLength(3)]
         public string Proj_Code { get; set; }

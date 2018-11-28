@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using OPWAPP2.DAL;
+using OPWAPP2.Models;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using OPWAPP2.DAL;
-using OPWAPP2.Models;
 
 namespace OPWAPP2.Controllers
 {
@@ -22,17 +19,25 @@ namespace OPWAPP2.Controllers
             return View(opwwork2.ToList());
         }
         public ActionResult WorksforApproval()
-        {
-        var opwwork2 = db.Opwwork2.Include(w => w.Authorisation.Usersect == User_Section.Elective_Works && w.Status == Status.Pending_Approval);
-        return View(opwwork2.ToList());
+        {           
+        var Approval = db.Opwwork2.Include(w => w.Authorisation).Where(w => w.Authorisation.Usersect == User_Section.Elective_Works && w.Status == Status.Pending_Approval);
+        return View(Approval.ToList());
         }
 
         public ActionResult WorksforFunding()
         {
-        var opwwork2 = db.Opwwork2.Include(w => w.Authorisation.Usersect == User_Section.Elective_Works && w.Status == Status.PendingFunding);
-        return View(opwwork2.ToList());
+           /* if (db.Opwauthorisation2.ToString() == User_Section.Elective_Works.ToString())
+           {*/
+               var Funding = db.Opwwork2.Include(w => w.Authorisation.Usersect == User_Section.Elective_Works && w.Status == Status.Pending_Approval);
+               return View(Funding.ToList());
+           /*}
+            if (db.Opwauthorisation2.ToString() == User_Section.Elective_Works.ToString())
+            {
+                var Funding = db.Opwwork2.Include(w => w.Authorisation.Usersect == User_Section.Elective_Works && w.Status == Status.PendingFunding);
+                return View(Funding.ToList());
+            }
+            else return RedirectToAction("Index");*/
         }
-
 
         public ActionResult ApprovalWorks()
         {

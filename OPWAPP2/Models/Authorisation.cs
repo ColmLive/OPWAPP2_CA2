@@ -42,6 +42,7 @@ namespace OPWAPP2.Models
         private const double AutoAppLimit = 1000;
         internal string LoginErrorMessage;
 
+        
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int User_ID { get; set; }
@@ -50,7 +51,6 @@ namespace OPWAPP2.Models
         [DisplayName("User Name ")]
         [Required(ErrorMessage = "This field is required.")]
         public string User_Name { get; set; }
-
 
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "This field is required.")]
