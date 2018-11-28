@@ -10,7 +10,7 @@ namespace OPWAPP2.Models
     public enum Property_Team
     {
         [Display(Name = "Team North")] Team_North,
-        [Display(Name = "Team South")] Team_south
+        [Display(Name = "Team South")] Team_South
     }
     public enum Property_Type
     {
@@ -18,7 +18,7 @@ namespace OPWAPP2.Models
         [Display(Name = "Branch Office")] Branch_Office,
         [Display(Name = "HSE Location")] HSE_Location
     }
-
+    
     public class Property
     {
         [Key]
@@ -27,7 +27,7 @@ namespace OPWAPP2.Models
 
         //[ConcurrencyCheck, MaxLength(5, ErrorMessage = "Property code must be 5 Char long."), MinLength(5)]
         [Required]
-        public string OPW_Building_code { get; set; }
+        public string OPW_Building_Code { get; set; }
 
         [Required]
         public string Address { get; set; }
@@ -50,9 +50,9 @@ namespace OPWAPP2.Models
         public Nullable<int> WorkId { get; set; }
 
         // Constructor
-        public Property(string OPW_Building_code, string Address, string County, Property_Type Type, string Cost_Centre, Property_Team Team)
+        public Property(string OPW_Building_Code, string Address, string County, Property_Type Type, string Cost_Centre, Property_Team Team)
         {
-            this.OPW_Building_code = OPW_Building_code;
+            this.OPW_Building_Code = OPW_Building_Code;
             this.Address = Address;
             this.County = County;
             this.Type = Type;
@@ -65,3 +65,4 @@ namespace OPWAPP2.Models
         }
     }
 }
+// CJC - 28/11/2018 - Replace OPW_Building_code with OPW_Building_Code in solution

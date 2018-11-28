@@ -52,7 +52,7 @@ namespace OPWAPP2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Property_ID,OPW_Building_code,Address,County,Type,Cost_Centre,Team,WorkId")] Property property)
+        public ActionResult Create([Bind(Include = "Property_ID,OPW_Building_Code,Address,County,Type,Cost_Centre,Team,WorkId")] Property property)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace OPWAPP2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Property_ID,OPW_Building_code,Address,County,Type,Cost_Centre,Team,WorkId")] Property property)
+        public ActionResult Edit([Bind(Include = "Property_ID,OPW_Building_Code,Address,County,Type,Cost_Centre,Team,WorkId")] Property property)
         {
             if (ModelState.IsValid)
             {
