@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<OPWAPP2.Models.Work>
 
 @{
-    ViewBag.Title = "ApprovalWorks";
+    ViewBag.Title = "EWWorksforApproval";
 }
 
 <!DOCTYPE html>
@@ -9,12 +9,18 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>WorksforApproval</title>
+    <title>EWWorksforApproval</title>
 </head>
 <body>
-   
+   <hr />
+    <h2> List of Elective Works Projects requiring DEASP Approval and Funding</h2>
+    <hr />
+    <br />
     <table class="table">
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Authorisation.User_Name)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Property_ID)
             </th>
@@ -30,15 +36,14 @@
             <th>
                 @Html.DisplayNameFor(model => model.Proj_budget_Approved)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-
             <th></th>
         </tr>
     
     @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Authorisation.User_Name)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Property_ID)
             </td>
@@ -54,15 +59,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Proj_budget_Approved)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                <button type="button" onclick="location.href='@Url.Action("Create","Work")'">New Works Request</button>
-            </td>
-      </tr>
+       </tr>
     }
-    
-    </table>
+  </table>
+
+    <div>
+        @Html.ActionLink("Back to Dashboard","EWDashBoard","Authorisation",null,new{ @class = "page-scroll" }))
+    </div>
+
+
+
 </body>
 </html>

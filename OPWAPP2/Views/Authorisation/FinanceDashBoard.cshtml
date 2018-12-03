@@ -13,6 +13,31 @@
         <text> Welcome Finance user -  @Session["UserName"].ToString() </text>
 
     }
+    <br />
+    <h4>List of Tasks</h4> <img class="mySlides" src="~/Resources/Funding.jpg" alt="AMD Image" style="width:50%">
+    <hr />
 
+    <div>
+        <ol>
+            <li>
+                Create new DEASP Elective works requests for approval and funding <button type="button" onclick="location.href='@Url.Action("Create", "Work")'">New Works Request</button>
+                <br />
+                <br />
+            </li>
+
+            <li>
+
+                List DEASP Elective works Awaiting approval <button type="button" onclick="location.href='@Url.Action("StorageWorksforApproval","Work")'">New Works Request</button>
+                <br /><br />
+            </li>
+            <li>
+                List DEASP Elective works Awaiting Funding <button type="button" onclick="location.href='@Url.Action("StorageWorksforFunding","Work")'">New Works Request</button>
+                <br /><br />
+            </li>
+            <li>
+                status of All DEASP Elective works requests <button type="button" onclick="location.href='@Url.Action("StorageWorksStatus","Work")'">New Works Request</button>
+                <br /><br />
+            </li>
+        </ol>
+    </div>
 </body>
-

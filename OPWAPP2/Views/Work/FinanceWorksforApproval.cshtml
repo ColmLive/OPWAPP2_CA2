@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<OPWAPP2.Models.Work>
 
 @{
-    ViewBag.Title = "ApprovalWorks";
+    ViewBag.Title = "FinanceWorksforApproval";
 }
 
 <!DOCTYPE html>
@@ -9,12 +9,14 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>WorksforApproval</title>
+    <title>FinanceWorksforApproval</title>
 </head>
 <body>
-   
     <table class="table">
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Authorisation.User_Name)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Property_ID)
             </th>
@@ -31,14 +33,22 @@
                 @Html.DisplayNameFor(model => model.Proj_budget_Approved)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Proj_funds_issued)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proj_Act_Cost)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
-
             <th></th>
         </tr>
     
     @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Authorisation.User_Name)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Property_ID)
             </td>
@@ -55,12 +65,16 @@
                 @Html.DisplayFor(modelItem => item.Proj_budget_Approved)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
+                @Html.DisplayFor(modelItem => item.Proj_funds_issued)
             </td>
             <td>
-                <button type="button" onclick="location.href='@Url.Action("Create","Work")'">New Works Request</button>
+                @Html.DisplayFor(modelItem => item.Proj_Act_Cost)
             </td>
-      </tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            
+        </tr>
     }
     
     </table>

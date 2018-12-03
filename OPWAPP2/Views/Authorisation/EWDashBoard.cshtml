@@ -5,6 +5,7 @@
 }
 
 <body>
+
     <H2> Elective_Works User DashBoard </H2>
 
 
@@ -17,28 +18,31 @@
 
 
     <br />
-    <h4>List of Tasks</h4> <img class="mySlides" src="~/Resources/Men at work cartoon.jpg" alt="AMD Image" style="width:50%">
+    <h4>List of Tasks</h4> <img src="~/Resources/Men at work cartoon.jpg" alt="AMD Image" style="width:50%">
     <hr />
-    <ol>
-        <li>
-            Create new DEASP Elective works requests for approval and funding <button type="button" onclick="location.href='@Url.Action("Create(work)","Work")'">New Works Request</button>
-            <br />
-            <br />
-        </li>
-        
-        <li>
+    
+    <div>
+        <ol>
+            <li>
+                Create new DEASP Elective works requests for approval and funding <button type="button" onclick="location.href='@Url.Action("Create", "Work")'">New Works Request</button>
+                <br />
+                <br />
+            </li>
 
-            List DEASP Elective works Awaiting approval <button type="button" onclick="location.href='@Url.Action("WorksforApproval","Work")'">New Works Request</button>
-            <br /><br />
-        </li>
-        <li>
-            List DEASP Elective works Awaiting Funding <button type="button" onclick="location.href='@Url.Action("WorksforFunding","Work")'">New Works Request</button>
-            <br /><br />
-        </li>
-        <li>
-            status of All DEASP Elective works requests <button type="button" onclick="location.href='@Url.Action("Index","Work")'">New Works Request</button>
-            <br /><br />
-        </li>
-    </ol>
+            <li>
+
+                List DEASP Elective works Awaiting approval <button type="button" onclick="location.href='@Url.Action("EWWorksforApproval","Work")'">New Works Request</button>
+                <br /><br />
+            </li>
+            <li>
+                List DEASP Elective works Awaiting Funding <button type="button" onclick="location.href='@Url.Action("EWWorksforFunding","Work")'">New Works Request</button>
+                <br /><br />
+            </li>
+            <li>
+                status of All DEASP Elective works requests <button type="button" onclick="location.href='@Url.Action("EWWorksStatus","Work")'">New Works Request</button>
+                <br /><br />
+            </li>
+        </ol>
+    </div>
 </body>
 
