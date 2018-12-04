@@ -30,10 +30,11 @@ namespace OPWAPP2.Controllers
 
         public ActionResult WorksforFunding()
         {
-           /* if (db.Opwauthorisation2.ToString() == User_Section.Elective_Works.ToString())
-           {*/
-               var Funding = db.Opwwork2.Include(w => w.Authorisation.Usersect == User_Section.Elective_Works && w.Status == Status.Pending_Approval);
-               return View(Funding.ToList());
+            /* if (db.Opwauthorisation2.ToString() == User_Section.Elective_Works.ToString())
+            {*/
+            //var Funding = db.Opwwork2.Include(w => w.Authorisation.Usersect == User_Section.Elective_Works && w.Status == Status.Pending_Approval);
+            var Funding = db.Opwwork2.Include(w => w.Authorisation).Where(w => w.Authorisation.Usersect == User_Section.Elective_Works && w.Status == Status.PendingFunding);
+            return View(Funding.ToList());
            /*}
             if (db.Opwauthorisation2.ToString() == User_Section.Elective_Works.ToString())
             {

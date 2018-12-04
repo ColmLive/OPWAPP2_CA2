@@ -6,3 +6,7 @@
 		- Create(work) changed to Create new DEASP Elective works requests for approval and funding <pre><button type="button" onclick="location.href='@Url.Action("Create","Work")'">Submit</button></pre>
 		- Reviewed Edit/Create/Delete actions to return to Works or List
 		Added @Html.ActionLink("Exit", "../Home/Index") to Property List to redisplay Home Page
+		
+3.	Changed Funding Option which was giving error 
+From.........			var Funding = db.Opwwork2.Include(w => w.Authorisation.Usersect == User_Section.Elective_Works && w.Status == Status.Pending_Approval);
+To...........			var Funding = db.Opwwork2.Include(w => w.Authorisation).Where(w => w.Authorisation.Usersect == User_Section.Elective_Works && w.Status == Status.PendingFunding);
