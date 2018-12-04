@@ -1,0 +1,8 @@
+1. Property List - Change Title to Index cannot Login. I'm not sure this is the reason as it subsequently failed on other occasions and loaded after a retry
+2. EWDashBoard 
+		- Changed Submit buttons
+		- Added <pre></pre> tags to line up Submit Buttons
+		- Added @Html.ActionLink("Exit", "../Authorisation/EWDashBoard") to all options on Works Tab
+		- Create(work) changed to Create new DEASP Elective works requests for approval and funding <pre><button type="button" onclick="location.href='@Url.Action("Create","Work")'">Submit</button></pre>
+		- Reviewed Edit/Create/Delete actions to return to Works or List
+		Added @Html.ActionLink("Exit", "../Home/Index") to Property List to redisplay Home Page

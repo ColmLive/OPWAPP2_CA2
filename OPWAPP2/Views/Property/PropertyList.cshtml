@@ -1,56 +1,60 @@
 ﻿@model IEnumerable<OPWAPP2.Models.Property>
 
 @{
-    ViewBag.Title = "PropertyList";
+	ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Property List</h2>
 
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.OPW_Building_Code)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.County)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cost_Centre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Team)
-        </th>
-            
-    </tr>
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.OPW_Building_Code)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Address)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.County)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Type)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Cost_Centre)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Team)
+		</th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.OPW_Building_Code)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.County)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cost_Centre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Team)
-        </td>
-                
-    </tr>
-}
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.OPW_Building_Code)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Address)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.County)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Type)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Cost_Centre)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Team)
+			</td>
+
+		</tr>
+	}
 
 </table>
+
+@Html.ActionLink("Exit", "../Home/Index")
+

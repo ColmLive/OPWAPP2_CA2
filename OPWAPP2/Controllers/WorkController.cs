@@ -11,7 +11,11 @@ namespace OPWAPP2.Controllers
     public class WorkController : Controller
     {
         private OPWContext2 db = new OPWContext2();
+        public ActionResult Home()
+        {
 
+            return RedirectToAction("Index", "Home");
+        }
         // GET: Work
         public ActionResult Index()
         {
