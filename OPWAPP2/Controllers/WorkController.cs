@@ -19,6 +19,7 @@ namespace OPWAPP2.Controllers
           return View(opwwork2.ToList());
         }
 
+
         // OPW approval lists by section
         public ActionResult EWWorksforApproval()
         {
@@ -178,6 +179,22 @@ namespace OPWAPP2.Controllers
             return View(work);
         }
 
+        // GET: Work/Edit/5
+        [HttpGet]
+        public ActionResult Approve(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Work work = db.Opwwork2.Find(id);
+            if (work == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.User_ID = new SelectList(db.Opwauthorisation2, "User_ID", "User_Name", work.User_ID);
+            return View(work);
+        }
 
         // POST: Work/Edit/5  - Approve Project
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

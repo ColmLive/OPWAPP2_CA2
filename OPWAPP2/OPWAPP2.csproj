@@ -355,7 +355,6 @@
     <Content Include="Views\Authorisation\StorageDashBoard.cshtml" />
     <Content Include="Views\Authorisation\FinanceDashBoard.cshtml" />
     <Content Include="Views\Authorisation\CWDashBoard.cshtml" />
-    <Content Include="Views\Work\ApprovalWorks.cshtml" />
     <Content Include="Views\Work\EWWorksforFunding.cshtml" />
     <Content Include="Views\Work\MEWorksforApproval.cshtml" />
     <Content Include="Views\Work\CWWorksforApproval.cshtml" />
