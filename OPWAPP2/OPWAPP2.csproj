@@ -285,11 +285,13 @@
     <Content Include="Resources\AMD View.jpg" />
     <Content Include="Resources\AMD.jpg" />
     <Content Include="Resources\Balbriggan.jpg" />
+    <Content Include="Resources\Building Approval.png" />
     <Content Include="Resources\Cartoon Builder.jpg" />
     <Content Include="Resources\Clondalkin.jpg" />
     <Content Include="Resources\College Road sligo.jpg" />
     <Content Include="Resources\Construction.jpg" />
     <Content Include="Resources\Cork Abbeycourt.jpg" />
+    <Content Include="Resources\Funding.jpg" />
     <Content Include="Resources\harp1_.gif" />
     <Content Include="Resources\Intreo sign.jpg" />
     <Content Include="Resources\Longford Intreo.jpg" />
@@ -353,9 +355,22 @@
     <Content Include="Views\Authorisation\StorageDashBoard.cshtml" />
     <Content Include="Views\Authorisation\FinanceDashBoard.cshtml" />
     <Content Include="Views\Authorisation\CWDashBoard.cshtml" />
-    <Content Include="Views\Work\WorksforApproval.cshtml" />
-    <Content Include="Views\Work\ApprovalWorks.cshtml" />
-    <Content Include="Views\Work\WorksforFunding.cshtml" />
+    <Content Include="Views\Work\EWWorksforFunding.cshtml" />
+    <Content Include="Views\Work\MEWorksforApproval.cshtml" />
+    <Content Include="Views\Work\CWWorksforApproval.cshtml" />
+    <Content Include="Views\Work\StorageWorksforApproval.cshtml" />
+    <Content Include="Views\Work\EWWorksforApproval.cshtml" />
+    <Content Include="Views\Work\MEWorksforFunding.cshtml" />
+    <Content Include="Views\Work\CWWorksforFunding.cshtml" />
+    <Content Include="Views\Work\StorageWorksforFunding.cshtml" />
+    <Content Include="Views\Work\EWWorksStatus.cshtml" />
+    <Content Include="Views\Work\MEWorksStatus.cshtml" />
+    <Content Include="Views\Work\CWWorksStatus.cshtml" />
+    <Content Include="Views\Work\StorageWorksStatus.cshtml" />
+    <Content Include="Views\Work\EWWorksCreate.cshtml" />
+    <Content Include="Views\Work\FinanceWorksforApproval.cshtml" />
+    <Content Include="Views\Work\FinanceWorksforFunding.cshtml" />
+    <Content Include="Views\Work\AccomWorksforApproval.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

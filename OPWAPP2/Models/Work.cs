@@ -57,17 +57,17 @@ namespace OPWAPP2.Models
 
 
         // Constructor for Building works
-        public Work(string Property_ID, int User_ID, string Proj_Code, string Project_Desc,double Proj_budget_Requested, Status Status)
+        public Work(string Property_ID, string Proj_Code, string Project_Desc,double Proj_budget_Requested)
         {
             this.Property_ID = Property_ID;
-            this.User_ID = User_ID;
+            User_ID = this.User_ID;
             this.Proj_Code = Proj_Code;
             this.Project_Desc = Project_Desc;
             this.Proj_budget_Requested = Proj_budget_Requested;
             Proj_budget_Approved = 0;
             Proj_funds_issued = 0;
             Proj_Act_Cost = 0;
-            this.Status = Status;
+            Status = Status.Pending_Approval;
         }
 
         public Work()

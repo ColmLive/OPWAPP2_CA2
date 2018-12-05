@@ -127,53 +127,56 @@ namespace OPWAPP2.Controllers
 
         // Login model and redirection to user views (JL)
         [HttpPost]
-        public ActionResult Authorise(OPWAPP2.Models.Authorisation userModel)
+        public ActionResult Authorise(Authorisation userModel)
 
       {
-            using (OPWContext2 db = new OPWContext2())
             {
-                var userDetails = db.Opwauthorisation2.Where(x => x.User_Name == userModel.User_Name && x.User_Password == userModel.User_Password).FirstOrDefault();
-                if (userDetails == null)
+                using (OPWContext2 db = new OPWContext2())
+
                 {
-                    userModel.LoginErrorMessage = "Wrong username or password.";
-                    return View("Index", userModel);
-                }
-                else
-                {
-                    Session["userID"] = userDetails.User_ID;
-                    Session["userName"] = userDetails.User_Name;
-                    //OPW Users
-                    if (userDetails.Usersect == User_Section.MandE_Works)
+                    var userDetails = db.Opwauthorisation2.Where(x => x.User_Name == userModel.User_Name && x.User_Password == userModel.User_Password).FirstOrDefault();
+                    if (userDetails == null)
                     {
-                    return RedirectToAction("MEDashBoard", "Authorisation");
+                        userModel.LoginErrorMessage = "Wrong username or password.";
+                        return View("Index", userModel);
                     }
-                    else if (userDetails.Usersect == User_Section.Elective_Works)
+                    else
                     {
-                    return RedirectToAction("EWDashBoard", "Authorisation");
+                        Session["userID"] = userDetails.User_ID;
+                        Session["userName"] = userDetails.User_Name;
+                        //OPW Users
+                        if (userDetails.Usersect == User_Section.MandE_Works)
+                        {
+                            return RedirectToAction("MEDashBoard", "Authorisation");
+                        }
+                        else if (userDetails.Usersect == User_Section.Elective_Works)
+                        {
+                            return RedirectToAction("EWDashBoard", "Authorisation");
+                        }
+                        else if (userDetails.Usersect == User_Section.Capital_works)
+                        {
+                            return RedirectToAction("CWDashBoard", "Authorisation");
+                        }
+                        else if (userDetails.Usersect == User_Section.Storage)
+                        {
+                            return RedirectToAction("StorageDashBoard", "Authorisation");
+                        }
+                        // DEASP Approvers
+                        else if (userDetails.Usersect == User_Section.Accommodation)
+                        {
+                            return RedirectToAction("AccomDashBoard", "Authorisation");
+                        }
+                        else if (userDetails.Usersect == User_Section.Finance)
+                        {
+                            return RedirectToAction("FinanceDashBoard", "Authorisation");
+                        }
+                        //Adminstrators
+                        else if (userDetails.Usersect == User_Section.Admin)
+                        {
+                            return RedirectToAction("AdminDashBoard", "Authorisation");
+                        }
+                        return View("Index", userModel);
                     }
-                    else if (userDetails.Usersect == User_Section.Capital_works)
-                    {
-                    return RedirectToAction("CWDashBoard", "Authorisation");
-                    }
-                    else if (userDetails.Usersect == User_Section.Storage)
-                    {
-                    return RedirectToAction("StorageDashBoard", "Authorisation");
-                    }
-                    // DEASP Approvers
-                    else if (userDetails.Usersect == User_Section.Accommodation)
-                    {
-                    return RedirectToAction("AccomDashBoard", "Authorisation");
-                    }
-                    else if (userDetails.Usersect == User_Section.Finance)
-                    {
-                    return RedirectToAction("FinanceDashBoard", "Authorisation");
-                    }
-                    //Adminstrators
-                    else if (userDetails.Usersect == User_Section.Admin)
-                    {
-                    return RedirectToAction("AdminDashBoard", "Authorisation");
-                    }
-                    return View("Index", userModel);
                 }
             }
         }
@@ -259,14 +262,11 @@ namespace OPWAPP2.Controllers
 
             return RedirectToAction("Login");
         }
+        public ActionResult Login()
+        {
+            ViewBag.Message = "Redirect to Open OPWAPP Login page.";
 
-
-
-
-
-
-
-
-
+            return RedirectToAction("Index","Home");
+        }
     }
 }

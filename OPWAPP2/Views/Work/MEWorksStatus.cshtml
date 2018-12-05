@@ -1,0 +1,88 @@
+﻿@model IEnumerable<OPWAPP2.Models.Work>
+
+@{
+    ViewBag.Title = "MEWorksStatus";
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MEWorksStatus</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Authorisation.User_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proj_Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Project_Desc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proj_budget_Requested)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proj_budget_Approved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proj_funds_issued)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proj_Act_Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Authorisation.User_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Property_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proj_Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Project_Desc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proj_budget_Requested)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proj_budget_Approved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proj_funds_issued)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proj_Act_Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Project_ID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Project_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Project_ID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
