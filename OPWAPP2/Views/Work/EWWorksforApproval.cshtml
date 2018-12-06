@@ -77,8 +77,9 @@
 				<td>
 					@Html.DisplayFor(modelItem => item.Status)
 				</td>
-				<td></td>
+				<td>
                 @Html.ActionLink("Details", "Details", new { id=item.Project_ID }) 
+				</td>
 			</tr>
 		}
 

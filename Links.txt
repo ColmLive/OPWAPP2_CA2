@@ -65,3 +65,6 @@ https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/
 https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/creating-a-connection-string
 https://petermcintyre.com/topics/aspnet-mvc-fix-cannot-attach-the-file-as-database/
  
+Dropdown Lists
+https://www.c-sharpcorner.com/UploadFile/4d9083/binding-dropdownlist-in-mvc-in-various-ways-in-mvc-with-data/
+https://www.c-sharpcorner.com/UploadFile/32bcb2/different-ways-for-populating-dropdownlist-in-mvc/

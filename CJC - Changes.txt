@@ -8,7 +8,7 @@ Review
 Outstanding
 1. Property as a Drop Down List
 2. Multiple Create / Edit / Delete instances 
-3. See above Create - can we return to the calling page and have only one instance of these CRUDs ?
+3. See above Create - can we return to the calling page and have only one instance of these CRUDs ? - see WorksController attempt to identify by User_ID
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 6/12/2018
 1. Create & Test Capital User
@@ -19,6 +19,7 @@ Outstanding
 6. Change behaviour on details to return to previous list
 7. Add Logout Option on EW & CW Dashboards
 8. Replace Index List on EW & CW with %%WorksStatus
+9. See 3. above - change WorksController actions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 04/12/2018
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

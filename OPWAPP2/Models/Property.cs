@@ -18,7 +18,7 @@ namespace OPWAPP2.Models
         [Display(Name = "Branch Office")] Branch_Office,
         [Display(Name = "HSE Location")] HSE_Location
     }
-    
+
     public class Property
     {
         [Key]
@@ -28,7 +28,7 @@ namespace OPWAPP2.Models
         //[ConcurrencyCheck, MaxLength(5, ErrorMessage = "Property code must be 5 Char long."), MinLength(5)]
         [Required]
         public string OPW_Building_Code { get; set; }
-
+       
         [Required]
         public string Address { get; set; }
 

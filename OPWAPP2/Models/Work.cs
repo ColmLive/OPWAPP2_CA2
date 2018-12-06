@@ -25,6 +25,11 @@ namespace OPWAPP2.Models
         [Required]
         //[ForeignKey("Property_ID")]
         public string Property_ID { get; set; }
+        
+        /*
+        [ForeignKey("OPW_Building_Code")]
+        public ICollection<Property> Propertys { get; set; }
+        */
 
         [Required]
         //[ForeignKey("User_ID")]
