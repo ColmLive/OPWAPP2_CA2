@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<OPWAPP2.Models.Work>
 
 @{
-    ViewBag.Title = "EWWorksStatus";
+    ViewBag.Title = "Enterprise Works List";
 }
-
+<h2>List Enterprise Works</h2>
 <!DOCTYPE html>
 
 <html>
@@ -77,9 +77,9 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Project_ID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Project_ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Project_ID })
+                @*Html.ActionLink("Edit", "Edit", new { id=item.Project_ID }) |*@
+                @*Html.ActionLink("Details", "Details", new { id=item.Project_ID }) |*@
+                @*Html.ActionLink("Delete", "Delete", new { id=item.Project_ID })*@
             </td>
         </tr>
     }
@@ -87,3 +87,7 @@
     </table>
 </body>
 </html>
+<div>
+	@Html.ActionLink("Exit", "../Authorisation/EWDashBoard")
+</div>
+@*Added Action Link to go to Works Dashboard Page - CJC *@

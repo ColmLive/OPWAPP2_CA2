@@ -96,7 +96,8 @@
 }
 
 <div>
-	@Html.ActionLink("Exit", "../Authorisation/EWDashBoard")
+	@*Html.ActionLink("Exit", "../Authorisation/EWDashBoard")*@
+	@Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer})
 </div>
 @*Added Action Link to go to Works Dashboard Page - CJC *@
 

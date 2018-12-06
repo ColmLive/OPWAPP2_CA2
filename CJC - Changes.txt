@@ -1,0 +1,182 @@
+Review
+1. Composite Key management - Building
+2. Foreign Key Management
+3. Key naming conventions - TableId
+4. property Naming conventions	- e.g. Works - capitalise fields	
+5. Validations - see Project Code 3 Chars long not trapped
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Outstanding
+1. Property as a Drop Down List
+2. Multiple Create / Edit / Delete instances 
+3. See above Create - can we return to the calling page and have only one instance of these CRUDs ?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+6/12/2018
+1. Create & Test Capital User
+2. Test Lists
+3. Remove Edit/Delete from Index View
+4. Remove Edit from Details View
+5. Add layouts on lists
+6. Change behaviour on details to return to previous list
+7. Add Logout Option on EW & CW Dashboards
+8. Replace Index List on EW & CW with %%WorksStatus
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+04/12/2018
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Property List - Change Title to Index cannot Login. I'm not sure this is the reason as it subsequently failed on other occasions and loaded after a retry
+2. EWDashBoard 
+		- Changed Submit buttons
+		- Added <pre></pre> tags to line up Submit Buttons
+		- Added @Html.ActionLink("Exit", "../Authorisation/EWDashBoard") to all options on Works Tab
+		- Create(work) changed to Create new DEASP Elective works requests for approval and funding <pre><button type="button" onclick="location.href='@Url.Action("Create","Work")'">Submit</button></pre>
+		- Reviewed Edit/Create/Delete actions to return to Works or List
+		Added @Html.ActionLink("Exit", "../Home/Index") to Property List to redisplay Home Page
+		
+3.	Changed Funding Option which was giving error 
+From.........			var Funding = db.Opwwork2.Include(w => w.Authorisation.Usersect == User_Section.Elective_Works && w.Status == Status.Pending_Approval);
+To...........			var Funding = db.Opwwork2.Include(w => w.Authorisation).Where(w => w.Authorisation.Usersect == User_Section.Elective_Works && w.Status == Status.PendingFunding);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+November 2018
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Amendments 
+eNum
+	Team - now 'North' and 'South'
+	Building Type - Needs to be amended on inconing file or eNum. 
+	How to create ENums from incoming String - must parse in some way (B_Type=Building_Type.DEASP)
+
+2. Validations
+			a) Type does not match eNum
+			b) Team does not match eNum
+			Check removed 'Required' fields RE valid to overcome validation errors below			
+
+			3. Changes in Database structure 
+			a) Connection string - https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/creating-a-connection-string
+			b) drop database [OPWDB.BuildingContext]
+			c) How to use Migrations to manage change
+				https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/migrations/index
+				https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/
+			d) Changing an existing database
+				https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/workflows/existing-database
+				https://www.youtube.com/watch?v=OAm0HPlu7UM
+				https://www.codeproject.com/Tips/651495/Inserting-Data-into-Multiple-Tables-using-Code-Fir
+			e)  https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/dbsets
+			f)	Composite Key Management
+				https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/data-annotations
+				http://go.microsoft.com/fwlink/?LinkId=386387
+
+4. Manage migrations on multiple classes
+				PM> Enable-Migrations
+				More than one context type was found in the assembly 'OPWDB'.
+				To enable migrations for 'OPWDB.AuthorisationContext', use Enable-Migrations -ContextTypeName OPWDB.AuthorisationContext.
+				To enable migrations for 'OPWDB.WorkContext', use Enable-Migrations -ContextTypeName OPWDB.WorkContext.
+				To enable migrations for 'OPWDB.BuildingContext', use Enable-Migrations -ContextTypeName OPWDB.BuildingContext.
+				PM> 
+				PM> Enable-Migrations -ContextTypeName OPWDB.AuthorisationContext
+				Checking if the context targets an existing database...
+				Code First Migrations enabled for project OPWDB.
+				PM> Enable-Migrations -ContextTypeName OPWDB.WorkContext
+				Migrations have already been enabled in project 'OPWDB'. To overwrite the existing migrations configuration, use the -Force parameter.
+				PM> Enable-Migrations -ContextTypeName OPWDB.BuildingContext
+				Migrations have already been enabled in project 'OPWDB'. To overwrite the existing migrations configuration, use the -Force parameter.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ERRORS - Validation and deleting / dropping database
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+System.Data.DataException
+  HResult=0x80131501
+  Message=An exception occurred while initializing the database. See the InnerException for details.
+  Source=EntityFramework
+  StackTrace:
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at OPWDB.Program.Main(String[] args) in C:\Users\ccarb\Dropbox\Education\HDip_Year2\EAD\CA2\OPWDB\OPWDB\OPWDB\Program.cs:line 19
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Inner Exception 1:
+EntityException: The underlying provider failed on Open.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Inner Exception 2:
+SqlException: Cannot open database "OPWDB.BuildingContext" requested by the login. The login failed.
+Login failed for user 'DESKTOP-T4PKM05\ccarb'.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+System.Data.Entity.Validation.DbEntityValidationException
+  HResult=0x80131920
+  Message=Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+  Source=EntityFramework
+  StackTrace:
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at OPWDB.Program.Main(String[] args) in C:\Users\ccarb\Dropbox\Education\HDip_Year2\EAD\CA2\OPWDB\OPWDB\OPWDB\Program.cs:line 22
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+ 1. Set AutomaticMigrationsEnabled = true; in Configuration.cs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+System.Data.Entity.Migrations.Infrastructure.AutomaticMigrationsDisabledException
+  HResult=0x80131500
+  Message=Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. 
+  Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.
+  Source=EntityFramework
+  StackTrace:
+   at System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   at System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   at System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClasse.<Update>b__d()
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
+   at System.Data.Entity.Internal.InternalContext.CreateDatabase(ObjectContext objectContext, DatabaseExistenceState existenceState)
+   at System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
+   at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at OPWDB.Program.Main(String[] args) in C:\Users\ccarb\Dropbox\Education\HDip_Year2\EAD\CA2\OPWDB\OPWDB\OPWDB\Program.cs:line 27
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2. Error when including Authorisation a1 = new Authorisation() {User_ID=1 in creation - I assume it's because it is created automatically
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Change 
+		[Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+To		
+		[Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		
+Inner Exception 2:
+NotSupportedException: Modifications to tables where a primary key column has property 'StoreGeneratedPattern' set to 'Computed' are not supported. 
+Use 'Identity' pattern instead. Key column: 'User_ID'. Table: 'CodeFirstDatabaseSchema.Authorisation'.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+System.Data.Entity.Infrastructure.DbUpdateException
+  HResult=0x80131501
+  Message=An error occurred while updating the entries. See the inner exception for details.
+  Source=EntityFramework
+  StackTrace:
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at OPWDB.Program.Main(String[] args) in C:\Users\ccarb\Dropbox\Education\HDip_Year2\EAD\CA2\OPWDB\OPWDB\OPWDB\Program.cs:line 23
+
+Inner Exception 1:
+UpdateException: An error occurred while updating the entries. See the inner exception for details.
+
+Inner Exception 2:
+SqlException: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_dbo.Buildings_dbo.Works_WorkId". 
+The conflict occurred in database "OPWDB.BuildingContext", table "dbo.Works", column 'WorkId'.
+The statement has been terminated.

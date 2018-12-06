@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<OPWAPP2.Models.Work>
 
 @{
-    ViewBag.Title = "CWWorksforFunding";
+    ViewBag.Title = "Capital Works Pending Funding";
 }
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @*Html.ActionLink("Create New", "Create")*@
     </p>
     <table class="table">
         <tr>
@@ -77,9 +77,9 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Project_ID }) |
+                @*Html.ActionLink("Edit", "Edit", new { id=item.Project_ID }) |*@
+                @*Html.ActionLink("Delete", "Delete", new { id=item.Project_ID })*@
                 @Html.ActionLink("Details", "Details", new { id=item.Project_ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Project_ID })
             </td>
         </tr>
     }
@@ -87,3 +87,7 @@
     </table>
 </body>
 </html>
+<div>
+	@Html.ActionLink("Exit", "../Authorisation/CWDashBoard")
+</div>
+@*Added Action Link to go to Capital Works Dashboard Page - CJC *@

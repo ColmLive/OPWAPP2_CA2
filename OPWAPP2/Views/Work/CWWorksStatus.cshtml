@@ -1,19 +1,20 @@
 ﻿@model IEnumerable<OPWAPP2.Models.Work>
 
 @{
-	Layout = null;
+    ViewBag.Title = "Capital Works List";
 }
 
+<h2>List Capital Works</h2>
 <!DOCTYPE html>
 
 <html>
 <head>
 	<meta name="viewport" content="width=device-width" />
-	<title>WorksforFunding</title>
+	<title>CWWorksStatus</title>
 </head>
 <body>
 	<p>
-		@Html.ActionLink("Create New", "Create")
+		@*Html.ActionLink("Create New", "Create")*@
 	</p>
 	<table class="table">
 		<tr>
@@ -78,9 +79,9 @@
 					@Html.DisplayFor(modelItem => item.Status)
 				</td>
 				<td>
-					@Html.ActionLink("Edit", "Edit", new { id = item.Project_ID }) |
-					@Html.ActionLink("Details", "Details", new { id = item.Project_ID }) |
-					@Html.ActionLink("Delete", "Delete", new { id = item.Project_ID })
+					@*Html.ActionLink("Edit", "Edit", new { id = item.Project_ID }) |*@
+					@*Html.ActionLink("Delete", "Delete", new { id = item.Project_ID })*@					@Html.ActionLink("Details", "Details", new { id = item.Project_ID }) |
+
 				</td>
 			</tr>
 		}
@@ -89,6 +90,6 @@
 </body>
 </html>
 <div>
-	@Html.ActionLink("Exit", "../Authorisation/EWDashBoard")
+	@Html.ActionLink("Exit", "../Authorisation/CWDashBoard")
 </div>
 @*Added Action Link to go to Works Dashboard Page - CJC *@

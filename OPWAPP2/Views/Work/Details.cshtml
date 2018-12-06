@@ -85,6 +85,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Project_ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*Html.ActionLink("Edit", "Edit", new { id = Model.Project_ID }) |*@
+	@*Html.ActionLink("Back to List", "Index")*@
+	@Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer})
 </p>

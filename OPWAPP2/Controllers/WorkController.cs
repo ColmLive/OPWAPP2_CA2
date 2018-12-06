@@ -156,7 +156,9 @@ namespace OPWAPP2.Controllers
             {
                 db.Opwwork2.Add(work);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
+                return Redirect(Request.UrlReferrer.ToString());
+
             }
 
             ViewBag.User_ID = new SelectList(db.Opwauthorisation2, "User_ID", "User_Name", work.User_ID);

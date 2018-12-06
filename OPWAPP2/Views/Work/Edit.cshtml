@@ -98,7 +98,8 @@
 }
 
 	<div>
-		@Html.ActionLink("Exit", "/Work")
+		@*Html.ActionLink("Exit", "/Work")*@
+		@Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer})
 	</div>
 
 @section Scripts {
