@@ -24,7 +24,7 @@ namespace OPWAPP2.Models
 
         [Required]
         //[ForeignKey("Property_ID")]
-        public string Property_ID { get; set; }
+        public int Property_ID { get; set; }
         
         /*
         [ForeignKey("OPW_Building_Code")]
@@ -62,7 +62,7 @@ namespace OPWAPP2.Models
 
 
         // Constructor for Building works
-        public Work(string Property_ID, string Proj_Code, string Project_Desc,double Proj_budget_Requested)
+        public Work(int Property_ID, string Proj_Code, string Project_Desc,double Proj_budget_Requested)
         {
             this.Property_ID = Property_ID;
             User_ID = this.User_ID;

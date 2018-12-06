@@ -68,3 +68,6 @@ https://petermcintyre.com/topics/aspnet-mvc-fix-cannot-attach-the-file-as-databa
 Dropdown Lists
 https://www.c-sharpcorner.com/UploadFile/4d9083/binding-dropdownlist-in-mvc-in-various-ways-in-mvc-with-data/
 https://www.c-sharpcorner.com/UploadFile/32bcb2/different-ways-for-populating-dropdownlist-in-mvc/
+
+Foreign Keys
+http://www.entityframeworktutorial.net/code-first/foreignkey-dataannotations-attribute-in-code-first.aspx
