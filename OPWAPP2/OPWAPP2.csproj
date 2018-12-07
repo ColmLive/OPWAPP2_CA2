@@ -371,6 +371,7 @@
     <Content Include="Views\Work\FinanceWorksforApproval.cshtml" />
     <Content Include="Views\Work\FinanceWorksforFunding.cshtml" />
     <Content Include="Views\Work\AccomWorksforApproval.cshtml" />
+    <Content Include="Views\Work\Create_Work.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

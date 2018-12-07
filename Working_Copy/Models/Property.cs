@@ -49,7 +49,7 @@ namespace OPWAPP2.Models
 
         public Nullable<int> WorkId { get; set; }
 
-               // Constructor
+        // Constructor
         public Property(string OPW_Building_Code, string Address, string County, Property_Type Type, string Cost_Centre, Property_Team Team)
         {
             this.OPW_Building_Code = OPW_Building_Code;

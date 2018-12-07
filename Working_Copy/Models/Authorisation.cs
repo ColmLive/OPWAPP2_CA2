@@ -82,7 +82,7 @@ namespace OPWAPP2.Models
         public double User_Approval_Limit { get; set; }
 
         // Navigation fields
-        public ICollection<Work> Building_Works { get; set; }
+        public ICollection<Work> Building_works { get; set; }
 
         public Nullable<int> WorkId { get; set; }
 

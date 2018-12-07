@@ -141,8 +141,7 @@ namespace OPWAPP2.Controllers
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         public ActionResult Create()
         {
-            ViewBag.User_ID         = new SelectList(db.Opwauthorisation2, "User_ID", "User_Name");
-            ViewBag.Property_ID     = new SelectList(db.Opwproperty2, "Property_ID", "OPW_Building_Code", "Address");
+            ViewBag.User_ID = new SelectList(db.Opwauthorisation2, "User_ID", "User_Name");
             return View();
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -160,7 +159,7 @@ namespace OPWAPP2.Controllers
                  {
                     db.Opwwork2.Add(work);
                     db.SaveChanges();
-                    
+
                          if (work.User_ID == 8)
                             {
                             return RedirectToAction("CWDashBoard", "Authorisation");
@@ -181,8 +180,6 @@ namespace OPWAPP2.Controllers
             }
 
             ViewBag.User_ID = new SelectList(db.Opwauthorisation2, "User_ID", "User_Name", work.User_ID);
-            //ViewBag.Property_ID = new SelectList(db.Opwproperty2, "OPW_Building_Code", "Team", "Address");
-            ViewBag.Property_ID = new SelectList(db.Opwproperty2, "Property_ID", "OPW_Building_Code", "Address", work.Property_ID);
             return View(work);
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

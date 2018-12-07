@@ -56,7 +56,6 @@ namespace OPWAPP2.Models
 
         //Collective Navigation Property
         public virtual Property Property { get; set; }
-        
 
         public virtual Authorisation Authorisation { get; set; }
 
@@ -65,7 +64,7 @@ namespace OPWAPP2.Models
         // Constructor for Building works
         public Work(int Property_ID, string Proj_Code, string Project_Desc,double Proj_budget_Requested)
         {
-            Property_ID = this.Property_ID;
+            this.Property_ID = Property_ID;
             User_ID = this.User_ID;
             this.Proj_Code = Proj_Code;
             this.Project_Desc = Project_Desc;
