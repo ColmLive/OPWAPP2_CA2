@@ -10,8 +10,7 @@ namespace OPWAPP2.Models
     public enum Status
     {
         [Display(Name = "Pending Approval")] Pending_Approval,
-        [Display(Name = "Approved")] Approved,
-        [Display(Name = "Pending Funding")] PendingFunding,
+        [Display(Name = "Approved pending Funding")] Approved,
         [Display(Name = "Funded")] Funded,
         [Display(Name = "Closed")] Closed
     }

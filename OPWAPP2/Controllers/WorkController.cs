@@ -22,7 +22,7 @@ namespace OPWAPP2.Controllers
           return View(opwwork2.ToList());
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // OPW approval lists by section
+        // OPW - lists of works for approval by section
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         public ActionResult EWWorksforApproval()
         {
@@ -47,7 +47,7 @@ namespace OPWAPP2.Controllers
         return View(Approval.ToList());
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // DEASP approval lists by section
+        // Accommodation lists of works for approval (all)
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         public ActionResult AccomWorksforApproval()
         {
@@ -55,21 +55,30 @@ namespace OPWAPP2.Controllers
             return View(Approval.ToList());
         }
 
+        public ActionResult AccomWorksforFunding()
+        {
+            var Approval = db.Opwwork2.Where(w => w.Status == Status.Approved);
+            return View(Approval.ToList());
+        }
+
+        public ActionResult DEASPWorksStatus()
+        {
+            var Status = db.Opwwork2.Include(w => w.Authorisation);
+            return View(Status.ToList());
+        }
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        // Finance - lists of works for funding (all)
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+               
         public ActionResult FinanceWorksforApproval()
         {
             var Approval = db.Opwwork2.Where(w => w.Status == Status.Pending_Approval);
             return View(Approval.ToList());
         }
 
-        public ActionResult AccomWorksforFunding()
-        {
-            var Approval = db.Opwwork2.Where(w => w.Status == Status.PendingFunding);
-            return View(Approval.ToList());
-        }
-
         public ActionResult FinanceWorksforFunding()
         {
-            var Approval = db.Opwwork2.Include(w => w.Authorisation).Where(w => w.Status == Status.PendingFunding);
+            var Approval = db.Opwwork2.Include(w => w.Authorisation).Where(w => w.Status == Status.Approved);
             return View(Approval.ToList());
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -77,24 +86,24 @@ namespace OPWAPP2.Controllers
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         public ActionResult EWWorksforFunding()
         {
-            var Funding = db.Opwwork2.Include(w => w.Authorisation).Where(w => w.Authorisation.Usersect == User_Section.Elective_Works && w.Status == Status.PendingFunding);
+            var Funding = db.Opwwork2.Include(w => w.Authorisation).Where(w => w.Authorisation.Usersect == User_Section.Elective_Works && w.Status == Status.Approved);
             return View(Funding.ToList());
         }
 
         public ActionResult MEWorksforFunding()
         {
-            var Funding = db.Opwwork2.Include(w => w.Authorisation).Where(w => w.Authorisation.Usersect == User_Section.MandE_Works && w.Status == Status.PendingFunding);
+            var Funding = db.Opwwork2.Include(w => w.Authorisation).Where(w => w.Authorisation.Usersect == User_Section.MandE_Works && w.Status == Status.Approved);
             return View(Funding.ToList());
         }
 
         public ActionResult CWWorksforFunding()
         {
-            var Funding = db.Opwwork2.Include(w => w.Authorisation).Where(w => w.Authorisation.Usersect == User_Section.Capital_works && w.Status == Status.PendingFunding);
+            var Funding = db.Opwwork2.Include(w => w.Authorisation).Where(w => w.Authorisation.Usersect == User_Section.Capital_works && w.Status == Status.Approved);
             return View(Funding.ToList());
         }
         public ActionResult StorageWorksforFunding()
         {
-            var Funding = db.Opwwork2.Include(w => w.Authorisation).Where(w => w.Authorisation.Usersect == User_Section.Storage && w.Status == Status.PendingFunding);
+            var Funding = db.Opwwork2.Include(w => w.Authorisation).Where(w => w.Authorisation.Usersect == User_Section.Storage && w.Status == Status.Approved);
             return View(Funding.ToList());
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -211,7 +220,7 @@ namespace OPWAPP2.Controllers
             return View(work);
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // GET: Work/Edit/5
+        // GET / POST: Work/Edit/5  - Approve Project
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         [HttpGet]
         public ActionResult Approve(int? id)
@@ -225,46 +234,45 @@ namespace OPWAPP2.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.User_ID = new SelectList(db.Opwauthorisation2, "User_ID", "User_Name", work.User_ID);
-            return View(work);
-        }
-        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // POST: Work/Edit/5  - Approve Project
-        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Approve([Bind(Include = "Status")] Work work)
-        {
             if (ModelState.IsValid)
             {
                 work.Status = Status.Approved;
+                work.Proj_budget_Approved = work.Proj_budget_Requested;
                 db.Entry(work).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("AccomWorksforApproval");
             }
             ViewBag.User_ID = new SelectList(db.Opwauthorisation2, "User_ID", "User_Name", work.User_ID);
             return View(work);
+                      
         }
+
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // POST: Work/Edit/5  - Funding project
+        // GET / POST: Work/Edit/5  - Fund Project
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Fund([Bind(Include = "Status")] Work work)
+        [HttpGet]
+        public ActionResult Fund(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Work work = db.Opwwork2.Find(id);
+            if (work == null)
+            {
+                return HttpNotFound();
+            }
             if (ModelState.IsValid)
             {
                 work.Status = Status.Funded;
+                work.Proj_funds_issued = work.Proj_budget_Approved;
                 db.Entry(work).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("FinanceWorksforFunding");
             }
             ViewBag.User_ID = new SelectList(db.Opwauthorisation2, "User_ID", "User_Name", work.User_ID);
             return View(work);
+
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         // POST: Work/Edit/5

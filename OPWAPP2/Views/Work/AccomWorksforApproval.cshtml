@@ -1,7 +1,7 @@
 ﻿@model  IEnumerable<OPWAPP2.Models.Work>
 
 @{
-    Layout = null;
+    ViewBag.Title = "AccomWorksforApproval";
 }
 
 <!DOCTYPE html>
@@ -84,17 +84,10 @@
             }
 
         </table>
-    </div>
-
-    @if (IsPost)
-    {
-        <div>
-            <b>
-                @ViewBag.Message = "You have Approved this Project. It is now with finance for Funding";
-            </b>
-        </div>
-
-    }
 </body>
 </html>
+<div>
+    @Html.ActionLink("Exit", "../Authorisation/AccomDashBoard")
+</div>
+@*Added Action Link to go to Works Dashboard Page - JL *@
 
