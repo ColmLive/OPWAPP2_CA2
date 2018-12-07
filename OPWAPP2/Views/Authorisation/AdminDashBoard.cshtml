@@ -1,7 +1,7 @@
 ﻿@model OPWAPP2.Models.Authorisation
 
 @{
-    ViewBag.Title = "AdminDashBoard";
+    ViewBag.Title = "Authorisation";
 }
 
 <body>
@@ -18,26 +18,20 @@
     <hr />
 
     <div>
-        <ol>
-            <li>
-                Create new DEASP Elective works requests for approval and funding <button type="button" onclick="location.href='@Url.Action("Create", "Work")'">New Works Request</button>
-                <br />
-                <br />
-            </li>
-
-            <li>
-
-                List DEASP Elective works Awaiting approval <button type="button" onclick="location.href='@Url.Action("StorageWorksforApproval","Work")'">New Works Request</button>
-                <br /><br />
-            </li>
-            <li>
-                List DEASP Elective works Awaiting Funding <button type="button" onclick="location.href='@Url.Action("StorageWorksforFunding","Work")'">New Works Request</button>
-                <br /><br />
-            </li>
-            <li>
-                status of All DEASP Elective works requests <button type="button" onclick="location.href='@Url.Action("StorageWorksStatus","Work")'">New Works Request</button>
-                <br /><br />
-            </li>
-        </ol>
+		<ol>
+			<li>
+				Create new user<pre><button type="button" onclick="location.href='@Url.Action("Create", "Authorisation")'">Submit</button></pre>
+				<br />
+			</li>
+			<li>
+				Maintain / List Users <pre><button type="button" onclick="location.href='@Url.Action("Index", "Authorisation")'">Submit</button></pre>
+				<br />
+			</li>
+			<li>
+				Logout<pre><button type="button" onclick="location.href='@Url.Action("Login","Home")'">Logout</button></pre>
+				<br />
+				<br />
+			</li>
+		</ol>
     </div>
 </body>

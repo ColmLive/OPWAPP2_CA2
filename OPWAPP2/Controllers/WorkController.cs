@@ -11,6 +11,8 @@ namespace OPWAPP2.Controllers
     public class WorkController : Controller
     {
         private OPWContext2 db = new OPWContext2();
+
+        
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         // GET: Work
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -157,10 +159,17 @@ namespace OPWAPP2.Controllers
             try
             {  
                 if (ModelState.IsValid)
+                
                  {
+                    /*
+                     * if (work.Proj_budget_Approved > work.Proj_budget_Requested)
+                    {
+                        ModelState.AddModelError("", "Unable to save changes. Approved cannot be greater than Requested");
+                    }
+                    */
                     db.Opwwork2.Add(work);
                     db.SaveChanges();
-                    
+                        
                          if (work.User_ID == 8)
                             {
                             return RedirectToAction("CWDashBoard", "Authorisation");
@@ -180,9 +189,8 @@ namespace OPWAPP2.Controllers
                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
             }
 
-            ViewBag.User_ID = new SelectList(db.Opwauthorisation2, "User_ID", "User_Name", work.User_ID);
-            //ViewBag.Property_ID = new SelectList(db.Opwproperty2, "OPW_Building_Code", "Team", "Address");
-            ViewBag.Property_ID = new SelectList(db.Opwproperty2, "Property_ID", "OPW_Building_Code", "Address", work.Property_ID);
+            ViewBag.User_ID         = new SelectList(db.Opwauthorisation2, "User_ID", "User_Name", work.User_ID);
+            ViewBag.Property_ID     = new SelectList(db.Opwproperty2, "Property_ID", "OPW_Building_Code", "Address", work.Property_ID);
             return View(work);
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
