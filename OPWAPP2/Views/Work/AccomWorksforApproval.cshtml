@@ -5,7 +5,7 @@
 }
 
 <!DOCTYPE html>
-
+<h2>List of OPW Works Pending Your Approval</h2>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -79,6 +79,7 @@
                     </td>
                     <td>
                         @Html.ActionLink("Approve", "Approve", new { id = item.Project_ID }) |
+                        @Html.ActionLink("Reject", "Reject", new { id = item.Project_ID }) |
                     </td>
                 </tr>
             }

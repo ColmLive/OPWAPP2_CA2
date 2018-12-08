@@ -15,13 +15,14 @@ namespace OPWAPP2.DAL
             var authorisation = new List<Authorisation>
                     
             {
-            new Authorisation{User_Name = "John Lee", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Admin ,Email="jlee@opw.com"},
             new Authorisation{User_Name = "Jeff Holding", User_Password = "12345678", Company = User_Company.OPW, Usersect = User_Section.Elective_Works,Email="jholding@opw.com" },
-            new Authorisation{User_Name = "Colm Carberry", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Admin, Email="ccarberry@opw.com"},
-            new Authorisation{User_Name = "Paul Colemen", User_Password = "12345678", Company = User_Company.OPW, Usersect = User_Section.Storage,Email="pcolemen@opw.com" },
             new Authorisation{User_Name = "Tim Allen", User_Password = "12345678", Company = User_Company.OPW, Usersect = User_Section.MandE_Works ,Email="tallen@opw.com"},
-            new Authorisation{User_Name = "Declan Cullen", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Accommodation,Email="dcullen@opw.com"},
-            new Authorisation{User_Name = "Sinead Murphy", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Finance ,Email="smurphy@opw.com"}
+            new Authorisation{User_Name = "Mick Byrne", User_Password = "12345678", Company = User_Company.OPW, Usersect = User_Section.Capital_works,Email="pcolemen@opw.com" },
+            new Authorisation{User_Name = "Paul Colemen", User_Password = "12345678", Company = User_Company.OPW, Usersect = User_Section.Storage,Email="pcolemen@opw.com" },
+            new Authorisation{User_Name = "Finbarr Cullen", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Accommodation,Email="dcullen@opw.com"},
+            new Authorisation{User_Name = "Sinead Murphy", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Finance ,Email="smurphy@opw.com"},
+            new Authorisation{User_Name = "John Lee", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Admin ,Email="jlee@opw.com"},
+            new Authorisation{User_Name = "Colm Carberry", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Admin, Email="ccarberry@opw.com"}
             };
             authorisation.ForEach(s => context.Opwauthorisation2.Add(s));
             context.SaveChanges();
@@ -231,8 +232,8 @@ new Property{OPW_Building_Code="B8673",Address="Dingle CWS, Unit 1, Górt a Lin,
             // Works test data
             var works = new List<Work>
             {
-            new Work{Property_ID = 1,User_ID = 1, Proj_Code = "001",Project_Desc= "fix sink" , Proj_budget_Requested = 2000, Status = Status.Pending_Approval},
-            new Work{Property_ID = 2,User_ID = 2, Proj_Code = "001",Project_Desc= "fix Alarm" , Proj_budget_Requested = 2600, Status = Status.Pending_Approval},
+            //new Work{Property_ID = 1,User_ID = 1, Proj_Code = "001",Project_Desc= "fix sink" , Proj_budget_Requested = 2000, Status = Status.Pending_Approval},
+            //new Work{Property_ID = 2,User_ID = 2, Proj_Code = "001",Project_Desc= "fix Alarm" , Proj_budget_Requested = 2600, Status = Status.Pending_Approval},
             //new Work{Project_ID = "PROJ 3", Property_ID = 3,User_ID = 3, Proj_Code = "002",Project_Desc= "fix ticket system" ,Proj_budget_Requested = 5000, Status = Status.Pending_Approval},
            // new Work{Project_ID = "PROJ 4", Property_ID = 4,User_ID = 3, Proj_Code = "002",Project_Desc= "DIY" ,Proj_budget_Requested = 5000, Status = Status.Approved},
            // new Work{Project_ID = "PROJ 5", Property_ID = 5,User_ID = 2, Proj_Code = "001",Project_Desc= "DIY 2" , Proj_budget_Requested = 2600, Status = Status.Funded},
