@@ -43,11 +43,11 @@ namespace OPWAPP2.Models
         public string Project_Desc { get; set; }
         [Required]
         public double Proj_budget_Requested { get; set; }
-        [Required]
+        //[Required]
         public double Proj_budget_Approved { get; set; }
-        [Required]
+        //[Required]
         public double Proj_funds_issued { get; set; }
-        [Required]
+        //[Required]
         public double Proj_Act_Cost { get; set; }
         [Required]
         public Status Status { get; set; }
@@ -63,10 +63,13 @@ namespace OPWAPP2.Models
 
 
         // Constructor for Building works
-        public Work(int Property_ID, string Proj_Code, string Project_Desc,double Proj_budget_Requested)
+        //public Work(int Property_ID, string Proj_Code, string Project_Desc,double Proj_budget_Requested)
+        public Work()
         {
             Property_ID = this.Property_ID;
+            //this.Property_ID = Property_ID;
             User_ID = this.User_ID;
+            //this.User_ID = User_ID;
             this.Proj_Code = Proj_Code;
             this.Project_Desc = Project_Desc;
             this.Proj_budget_Requested = Proj_budget_Requested;
@@ -76,9 +79,10 @@ namespace OPWAPP2.Models
             Status = Status.Pending_Approval;
         }
 
-       public Work()
+       /*
+        * public Work()
        {
        }
-
+       */
     }
 }

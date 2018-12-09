@@ -291,8 +291,8 @@ namespace OPWAPP2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "Project_ID,Property_ID,User_ID,Proj_Code,Project_Desc,Proj_budget_Requested,Proj_budget_Approved,Proj_funds_issued,Proj_Act_Cost,Status")] Work work)
-        public ActionResult Create([Bind(Include = "Property_ID,Proj_Code,Project_Desc,Proj_budget_Requested,")] Work work)
+        public ActionResult Create([Bind(Include = "Project_ID,Property_ID,User_ID,Proj_Code,Project_Desc,Proj_budget_Requested,Proj_budget_Approved,Proj_funds_issued,Proj_Act_Cost,Status")] Work work)
+        //public ActionResult Create([Bind(Include = "Property_ID,Proj_Code,Project_Desc,Proj_budget_Requested")] Work work)
         {
 
             try
