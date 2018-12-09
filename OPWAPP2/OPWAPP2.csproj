@@ -359,7 +359,6 @@
     <Content Include="Views\Authorisation\AdminDashBoard.cshtml" />
     <Content Include="Views\Authorisation\AccomDashBoard.cshtml" />
     <Content Include="Views\Authorisation\EWDashBoard.cshtml" />
-    <Content Include="Views\Authorisation\StorageDashBoard.cshtml" />
     <Content Include="Views\Authorisation\FinanceDashBoard.cshtml" />
     <Content Include="Views\Authorisation\CWDashBoard.cshtml" />
     <Content Include="Views\Work\EWWorksforFunding.cshtml" />
@@ -378,8 +377,18 @@
     <Content Include="Views\Work\FinanceWorksforApproval.cshtml" />
     <Content Include="Views\Work\FinanceWorksforFunding.cshtml" />
     <Content Include="Views\Work\AccomWorksforApproval.cshtml" />
+    <Content Include="Views\Work\AccomWorksforFunding.cshtml" />
+    <Content Include="Views\Work\DEASPWorksStatus.cshtml" />
+    <Content Include="Views\Work\EWWorksrejected.cshtml" />
+    <Content Include="Views\Work\MEWorksRejected.cshtml" />
+    <Content Include="Views\Work\CWWorksRejected.cshtml" />
+    <Content Include="Views\Work\StorageRejected.cshtml" />
+    <Content Include="Views\Work\DEASPWorksRejected.cshtml" />
+    <Content Include="Views\Authorisation\StorageDashBoard.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

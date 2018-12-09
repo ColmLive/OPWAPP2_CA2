@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-	@*Html.ActionLink("Create New", "Create")*@
+	Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
 	<tr>
@@ -72,9 +72,9 @@
 				@Html.DisplayFor(modelItem => item.Status)
 			</td>
 			<td>
-				@*Html.ActionLink("Edit", "Edit", new { id = item.Project_ID })*@
-				@*Html.ActionLink("Delete", "Delete", new { id = item.Project_ID })*@
-				@Html.ActionLink("Details", "Details", new { id = item.Project_ID }) |
+				@Html.ActionLink("Edit", "Edit", new { id = item.Project_ID })
+				@Html.ActionLink("Delete", "Delete", new { id = item.Project_ID })
+				@Html.ActionLink("Details", "Details", new { id = item.Project_ID }) 
 
 			</td>
 		</tr>
@@ -82,6 +82,6 @@
 
 </table>
 <div>
-@Html.ActionLink("Exit", "../Authorisation/EWDashBoard")
+@Html.ActionLink("Exit", "../Authorisation/AdminDashBoard")
 </div>
 @*Added Action Link to go to Works Dashboard Page - CJC *@

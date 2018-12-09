@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<OPWAPP2.Models.Work>
 
 @{
-    ViewBag.Title = "Capital Works List";
+    ViewBag.Title = "CWWorksStatus";
 }
 
-<h2>List Capital Works</h2>
-<!DOCTYPE html>
 
+<!DOCTYPE html>
+<h2>Status of Capital Works Projects</h2>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width" />
@@ -80,7 +80,8 @@
 				</td>
 				<td>
 					@*Html.ActionLink("Edit", "Edit", new { id = item.Project_ID }) |*@
-					@*Html.ActionLink("Delete", "Delete", new { id = item.Project_ID })*@					@Html.ActionLink("Details", "Details", new { id = item.Project_ID }) |
+					@*Html.ActionLink("Delete", "Delete", new { id = item.Project_ID })*@
+                    @Html.ActionLink("Details", "Details", new { id = item.Project_ID }) |
 
 				</td>
 			</tr>

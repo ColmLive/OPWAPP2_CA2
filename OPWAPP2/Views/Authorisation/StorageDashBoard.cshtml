@@ -5,41 +5,41 @@
 }
 
 <body>
-    <H2> Storage User DashBoard </H2>
-
-
+    <H2>Storage Works User DashBoard </H2>
     @if (Session["UserName"] != null)
     {
-        <text> Welcome Storage User -  @Session["UserName"].ToString() </text>
-
+        <text> Welcome M&E_Works Staff -  @Session["UserName"].ToString() </text>
     }
+
     <br />
     <h4>List of Tasks</h4> <img class="mySlides" src="~/Resources/Men at work cartoon.jpg" alt="AMD Image" style="width:50%">
     <hr />
 
-    <div>
-        <ol>
-            <li>
-                Create new DEASP storage request for approval and funding <button type="button" onclick="location.href='@Url.Action("Create", "Work")'">New Works Request</button>
-                <br />
-                <br />
-            </li>
-
-            <li>
-
-                List DEASP Elective works Awaiting approval <button type="button" onclick="location.href='@Url.Action("StorageWorksforApproval","Work")'">New Works Request</button>
-                <br /><br />
-            </li>
-            <li>
-                List DEASP Elective works Awaiting Funding <button type="button" onclick="location.href='@Url.Action("StorageWorksforFunding","Work")'">New Works Request</button>
-                <br /><br />
-            </li>
-            <li>
-                status of All DEASP Elective works requests <button type="button" onclick="location.href='@Url.Action("StorageWorksStatus","Work")'">New Works Request</button>
-                <br /><br />
-            </li>
-        </ol>
-    </div>
+    <ol>
+        <li>
+            Create new DEASP Elective works requests for approval and funding <pre><button type="button" onclick="location.href='@Url.Action("Create","Work")'">Submit</button></pre>
+            <br />
+        </li>
+        <li>
+            List DEASP Elective works Awaiting approval<pre><button type="button" onclick="location.href='@Url.Action("StorageWorksforApproval","Work")'">Submit</button></pre>
+            <br />
+        </li>
+        <li>
+            List DEASP Elective works Awaiting Funding <pre><button type="button" onclick="location.href='@Url.Action("StorageWorksforFunding","Work")'">Submit</button></pre>
+            <br />
+        </li>
+        <li>
+            status of All DEASP Elective works requests<pre><button type="button" onclick="location.href='@Url.Action("StorageWorksStatus","Work")'">Submit</button></pre>
+            <br />
+        </li>
+        <li>
+            status of All DEASP Elective works requests<pre><button type="button" onclick="location.href='@Url.Action("StorageWorksrejected","Work")'">Submit</button></pre>
+            <br />
+        </li>
+        <li>
+            Logout<pre><button type="button" onclick="location.href='@Url.Action("Login","Home")'">Logout</button></pre>
+            <br />
+        </li>
+    </ol>
 </body>
-
-
+@* Added <pre> tag to buttons and changed action to 'Submit' *@

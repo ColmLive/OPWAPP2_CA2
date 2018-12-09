@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<OPWAPP2.Models.Work>
 
 @{
-	Layout = null;
+    ViewBag.Title = "FinanceWorksforApproval";
 }
 
 <!DOCTYPE html>
@@ -39,30 +39,33 @@
 
 		@foreach (var item in Model)
 		{
-			<tr>
-				<td>
-					@Html.DisplayFor(modelItem => item.Property_ID)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Proj_Code)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Project_Desc)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Proj_budget_Requested)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Status)
-				</td>
-				<td></td>
-			</tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Property_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proj_Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Project_Desc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proj_budget_Requested)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Fund", "Fund", new { id = item.Project_ID }) |
+            </td>
+            <td></td>
+        </tr>
 		}
 
 	</table>
 </body>
 </html>
 <div>
-	@Html.ActionLink("Exit", "../Authorisation/EWDashBoard")
+	@Html.ActionLink("Exit", "../Authorisation/FinanceDashBoard")
 </div>
 @*Added Action Link to go to Works Dashboard Page - CJC *@

@@ -1,11 +1,11 @@
 ﻿@model  IEnumerable<OPWAPP2.Models.Work>
 
 @{
-    Layout = null;
+    ViewBag.Title = "AccomWorksforApproval";
 }
 
 <!DOCTYPE html>
-
+<h2>List of OPW Works Pending Your Approval</h2>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -79,22 +79,16 @@
                     </td>
                     <td>
                         @Html.ActionLink("Approve", "Approve", new { id = item.Project_ID }) |
+                        @Html.ActionLink("Reject", "Reject", new { id = item.Project_ID }) |
                     </td>
                 </tr>
             }
 
         </table>
-    </div>
-
-    @if (IsPost)
-    {
-        <div>
-            <b>
-                @ViewBag.Message = "You have Approved this Project. It is now with finance for Funding";
-            </b>
-        </div>
-
-    }
 </body>
 </html>
+<div>
+    @Html.ActionLink("Exit", "../Authorisation/AccomDashBoard")
+</div>
+@*Added Action Link to go to Works Dashboard Page - JL *@
 

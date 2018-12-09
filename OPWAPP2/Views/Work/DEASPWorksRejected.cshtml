@@ -1,15 +1,17 @@
 ﻿@model IEnumerable<OPWAPP2.Models.Work>
 
 @{
-    ViewBag.Title = "Capital Works for Approval";
+    ViewBag.Title = "DEASPWorksRejected";
 }
-<h2>List of Elective Works Pending Approval</h2>
+
+
+<h2>List of Rejected Elective Works Projects</h2>
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>WorksforApproval</title>
+    <title>MEWorksforApproval</title>
 </head>
 <body>
     <p>
@@ -78,7 +80,9 @@
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
                 <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.Project_ID })
+                    @*Html.ActionLink("Edit", "Edit", new { id=item.Project_ID }) |*@
+                    @*Html.ActionLink("Details", "Details", new { id=item.Project_ID }) |*@
+                    @*Html.ActionLink("Delete", "Delete", new { id=item.Project_ID })*@
                 </td>
             </tr>
         }
@@ -86,7 +90,4 @@
     </table>
 </body>
 </html>
-<div>
-    @Html.ActionLink("Exit", "../Authorisation/CWDashBoard")
-</div>
-@*Added Action Link to go to Works Dashboard Page - CJC *@
+

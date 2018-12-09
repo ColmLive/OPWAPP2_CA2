@@ -17,22 +17,35 @@
     <h4>List of Tasks</h4> <img class="mySlides" src="~/Resources/Building Approval.png" alt="AMD Image" style="width:50%">
     <hr />
 
-    <div>
-        <ol>
-            <li>
-                List DEASP Elective works Awaiting approval <button type="button" onclick="location.href='@Url.Action("AccomWorksforApproval","Work")'">New Works Request</button>
-                <br /><br />
-            </li>
-            <li>
-                List DEASP Elective works Awaiting Funding <button type="button" onclick="location.href='@Url.Action("StorageWorksforFunding","Work")'">New Works Request</button>
-                <br /><br />
-            </li>
-            <li>
-                status of All DEASP Elective works requests <button type="button" onclick="location.href='@Url.Action("StorageWorksStatus","Work")'">New Works Request</button>
-                <br /><br />
-            </li>
-        </ol>
-    </div>
+    <ol>
+        <li>
+            Create new DEASP Elective works requests for approval and funding <pre><button type="button" onclick="location.href='@Url.Action("Create","Work")'">Submit</button></pre>
+            <br />
+        </li>
+        <li>
+
+            List DEASP Elective works Awaiting approval<pre><button type="button" onclick="location.href='@Url.Action("AccomWorksforApproval","Work")'">Submit</button></pre>
+            <br />
+        </li>
+        <li>
+            List DEASP Elective works Awaiting Funding <pre><button type="button" onclick="location.href='@Url.Action("AccomWorksforFunding","Work")'">Submit</button></pre>
+            <br />
+        </li>
+        <li>
+            status of All DEASP Elective works requests<pre><button type="button" onclick="location.href='@Url.Action("DEASPWorksStatus","Work")'">Submit</button></pre>
+            <br />
+        </li>
+        <li>
+            status of All DEASP Elective works requests<pre><button type="button" onclick="location.href='@Url.Action("DEASPWorksRejected","Work")'">Submit</button></pre>
+            <br />
+        </li>
+        <li>
+            Logout<pre><button type="button" onclick="location.href='@Url.Action("Login","Home")'">Logout</button></pre>
+            <br />
+        </li>
+    </ol>
 </body>
+@* Added <pre> tag to buttons and changed action to 'Submit' *@
+
 
 
