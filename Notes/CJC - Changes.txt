@@ -6,17 +6,19 @@ Review
 5. Validations - see Project Code 3 Chars long not trapped
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Outstanding
-1. Property as a Drop Down List
-2. Multiple Create / Edit / Delete instances 
-3. See above Create - can we return to the calling page and have only one instance of these CRUDs ? - see WorksController attempt to identify by User_ID
+1. Property as a Drop Down List 			- OK
+2. Multiple Create / Edit / Delete instances 		- OK
+3. See above Create - can we return to the calling page and have only one instance of these CRUDs ? 
+	- see WorksController attempt to identify by User_ID
+4. Review Debug settings in Webconfig file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 6/12/2018
-1. Create & Test Capital User
-2. Test Lists
-3. Remove Edit/Delete from Index View
-4. Remove Edit from Details View
-5. Add layouts on lists
-6. Change behaviour on details to return to previous list
+1. Create & Test Capital User 					- OK
+2. Test Lists							- OK
+3. Remove Edit/Delete from Index View				- OK
+4. Remove Edit from Details View				- OK
+5. Add layouts on lists						- OK
+6. Change behaviour on details to return to previous list	- OK
 7. Add Logout Option on EW & CW Dashboards
 8. Replace Index List on EW & CW with %%WorksStatus
 9. See 3. above - change WorksController actions
