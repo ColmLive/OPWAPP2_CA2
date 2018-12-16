@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using OPWAPP2.DAL;
+using OPWAPP2.Models;
+using System;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using OPWAPP2.DAL;
-using OPWAPP2.Models;
+using OPWAPP2.Areas.HelpPage.ModelDescriptions;
+using OPWAPP2.Areas.HelpPage.Models;
 
 namespace OPWAPP2.Controllers
 {
@@ -15,12 +15,21 @@ namespace OPWAPP2.Controllers
     {
         private OPWContext2 db = new OPWContext2();
 
-        // GET: Authorisations
+        /// <summary>
+        /// Index of Authorisations.
+        /// </summary>
+        /// <returns></returns>
+        /// GET: Authorisations
         public ActionResult Index()
         {
             return View(db.Opwauthorisation2.ToList());
         }
 
+        /// <summary>
+        /// Get Authorisation details
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Authorisations/Details/5
         public ActionResult Details(int? id)
         {
@@ -49,6 +58,44 @@ namespace OPWAPP2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "User_ID,User_Name,User_Password,Email,Company,Usersect,Usersectcode,User_Approval_Limit,WorkId")] Authorisation authorisation)
         {
+            try
+            {
+                if (authorisation.Usersect == User_Section.MandE_Works)
+                {
+                    authorisation.Usersectcode = User_Section_Code.E30_ZS_34;
+                    authorisation.User_Approval_Limit = 0;
+                }
+                else if (authorisation.Usersect == User_Section.Elective_Works)
+                {
+                    authorisation.Usersectcode = User_Section_Code.k00_ZS_34;
+                    authorisation.User_Approval_Limit = 0;
+                }
+                else if (authorisation.Usersect == User_Section.Capital_works)
+                {
+                    authorisation.Usersectcode = User_Section_Code.J10_ZS_34;
+                    authorisation.User_Approval_Limit = 0;
+                }
+                else if (authorisation.Usersect == User_Section.Storage)
+
+                {
+                    authorisation.Usersectcode = User_Section_Code.L00_ZH_34;
+                    authorisation.User_Approval_Limit = 0;
+                }
+                else if (authorisation.Usersect == User_Section.Admin)
+                {
+                    authorisation.Usersectcode = User_Section_Code.Admin;
+                    authorisation.User_Approval_Limit = 999999999;
+                }
+                else if (authorisation.Usersect == User_Section.Accommodation)
+                {
+                    authorisation.Usersectcode = User_Section_Code.FMU1;
+                    authorisation.User_Approval_Limit = 50000;
+                }
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e);
+            }
             if (ModelState.IsValid)
             {
                 db.Opwauthorisation2.Add(authorisation);
@@ -71,7 +118,7 @@ namespace OPWAPP2.Controllers
             {
                 return HttpNotFound();
             }
-            return View(authorisation);
+              return View(authorisation);
         }
 
         // POST: Authorisations/Edit/5
@@ -79,7 +126,7 @@ namespace OPWAPP2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "User_ID,User_Name,User_Password,Email,Company,Usersect,Usersectcode,User_Approval_Limit,WorkId")] Authorisation authorisation)
+        public ActionResult Edit([Bind(Include = "User_ID,User_Name,User_Password,Email,Company,Usersect,Usersectcode,User_Approval_Limit,WorkId,approvalStatus")] Authorisation authorisation)
         {
             if (ModelState.IsValid)
             {
@@ -134,13 +181,13 @@ namespace OPWAPP2.Controllers
                 using (OPWContext2 db = new OPWContext2())
 
                 {
-                    var userDetails = db.Opwauthorisation2.Where(x => x.User_Name == userModel.User_Name && x.User_Password == userModel.User_Password).FirstOrDefault();
+                    var userDetails = db.Opwauthorisation2.Where(x => x.User_Name == userModel.User_Name && x.User_Password == userModel.User_Password && x.approvalStatus==ApprovalStatus.Approved).FirstOrDefault();
                     if (userDetails == null)
                     {
                         userModel.LoginErrorMessage = "Wrong username or password.";
                         return View("Index", userModel);
                     }
-                    else
+                   else
                     {
                         Session["userID"] = userDetails.User_ID;
                         Session["userName"] = userDetails.User_Name;
@@ -180,7 +227,7 @@ namespace OPWAPP2.Controllers
                 }
             }
         }
-
+              
         public ActionResult LogOut()
         {
             int userId = (int)Session["userID"];

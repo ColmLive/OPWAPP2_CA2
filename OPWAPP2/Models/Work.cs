@@ -7,6 +7,9 @@ using System.Web;
 
 namespace OPWAPP2.Models
 {
+    
+
+
     public enum Status
     {
         [Display(Name = "Pending Approval")] Pending_Approval,
@@ -18,6 +21,8 @@ namespace OPWAPP2.Models
 
     public class Work
     {
+        private const double AutoAppLimit = 750;
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Project_ID { get; set; }
@@ -67,16 +72,15 @@ namespace OPWAPP2.Models
         public Work()
         {
             Property_ID = this.Property_ID;
-            //this.Property_ID = Property_ID;
             User_ID = this.User_ID;
-            //this.User_ID = User_ID;
-            this.Proj_Code = Proj_Code;
-            this.Project_Desc = Project_Desc;
-            this.Proj_budget_Requested = Proj_budget_Requested;
+            Proj_Code = this.Proj_Code;
+            Project_Desc = this.Project_Desc;
+            Proj_budget_Requested = this.Proj_budget_Requested;
             Proj_budget_Approved = 0;
             Proj_funds_issued = 0;
             Proj_Act_Cost = 0;
             Status = Status.Pending_Approval;
+            
         }
 
        /*

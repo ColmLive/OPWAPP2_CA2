@@ -282,7 +282,7 @@ namespace OPWAPP2.Controllers
         {
             ViewBag.User_ID         = new SelectList(db.Opwauthorisation2, "User_ID", "User_Name");
             ViewBag.Property_ID     = new SelectList(db.Opwproperty2, "Property_ID", "OPW_Building_Code", "Address");
-            return View();
+             return View();
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         // POST: Work/Create
@@ -292,7 +292,6 @@ namespace OPWAPP2.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Project_ID,Property_ID,User_ID,Proj_Code,Project_Desc,Proj_budget_Requested,Proj_budget_Approved,Proj_funds_issued,Proj_Act_Cost,Status")] Work work)
-        //public ActionResult Create([Bind(Include = "Property_ID,Proj_Code,Project_Desc,Proj_budget_Requested")] Work work)
         {
 
             try
@@ -300,6 +299,17 @@ namespace OPWAPP2.Controllers
                 if (ModelState.IsValid)
                 
                  {
+                    if (work.Proj_budget_Requested < 750)
+                    {
+                        work.Proj_budget_Approved = work.Proj_budget_Requested;
+                        work.Status = Status.Approved;
+                    }
+                    else
+                    {
+                        work.Proj_budget_Approved = 0;
+                        work.Status = Status.Pending_Approval;
+                    }
+
                     /*
                      * if (work.Proj_budget_Approved > work.Proj_budget_Requested)
                     {

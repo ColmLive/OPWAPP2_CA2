@@ -15,14 +15,14 @@ namespace OPWAPP2.DAL
             var authorisation = new List<Authorisation>
                     
             {
-            new Authorisation{User_Name = "Jeff Holding", User_Password = "12345678", Company = User_Company.OPW, Usersect = User_Section.Elective_Works,Email="jholding@opw.com" },
-            new Authorisation{User_Name = "Tim Allen", User_Password = "12345678", Company = User_Company.OPW, Usersect = User_Section.MandE_Works ,Email="tallen@opw.com"},
-            new Authorisation{User_Name = "Mick Byrne", User_Password = "12345678", Company = User_Company.OPW, Usersect = User_Section.Capital_works,Email="pcolemen@opw.com" },
-            new Authorisation{User_Name = "Paul Colemen", User_Password = "12345678", Company = User_Company.OPW, Usersect = User_Section.Storage,Email="pcolemen@opw.com" },
-            new Authorisation{User_Name = "Finbarr Cullen", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Accommodation,Email="dcullen@opw.com"},
-            new Authorisation{User_Name = "Sinead Murphy", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Finance ,Email="smurphy@opw.com"},
-            new Authorisation{User_Name = "John Lee", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Admin ,Email="jlee@opw.com"},
-            new Authorisation{User_Name = "Colm Carberry", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Admin, Email="ccarberry@opw.com"}
+            new Authorisation{User_Name = "Jeff Holding", User_Password = "12345678", Company = User_Company.OPW, Usersect = User_Section.Elective_Works,Usersectcode=User_Section_Code.E30_ZS_34 ,Email="jholding@opw.com",approvalStatus = ApprovalStatus.Approved,User_Approval_Limit=0},
+            new Authorisation{User_Name = "Tim Allen", User_Password = "12345678", Company = User_Company.OPW, Usersect = User_Section.MandE_Works,Usersectcode=User_Section_Code.k00_ZS_34,Email="tallen@opw.com",approvalStatus = ApprovalStatus.Approved,User_Approval_Limit=0},
+            new Authorisation{User_Name = "Mick Byrne", User_Password = "12345678", Company = User_Company.OPW, Usersect = User_Section.Capital_works,Usersectcode=User_Section_Code.J10_ZS_34,Email="pcolemen@opw.com",approvalStatus = ApprovalStatus.Approved,User_Approval_Limit=0 },
+            new Authorisation{User_Name = "Paul Colemen", User_Password = "12345678", Company = User_Company.OPW, Usersect = User_Section.Storage,Usersectcode=User_Section_Code.L00_ZH_34,Email="pcolemen@opw.com",approvalStatus = ApprovalStatus.Approved,User_Approval_Limit=0 },
+            new Authorisation{User_Name = "Finbarr Cullen", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Accommodation,Usersectcode=User_Section_Code.FMU1,Email="dcullen@opw.com",approvalStatus = ApprovalStatus.Approved,User_Approval_Limit=50000},
+            new Authorisation{User_Name = "Sinead Murphy", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Finance ,Usersectcode=User_Section_Code.FMU2,Email="smurphy@opw.com",approvalStatus = ApprovalStatus.Approved,User_Approval_Limit=0},
+            new Authorisation{User_Name = "John Lee", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Admin ,Usersectcode=User_Section_Code.Admin,Email="jlee@opw.com",approvalStatus = ApprovalStatus.Approved,User_Approval_Limit=999999999},
+            new Authorisation{User_Name = "Colm Carberry", User_Password = "12345678", Company = User_Company.DEASP, Usersect = User_Section.Admin, Usersectcode=User_Section_Code.Admin,Email="ccarberry@opw.com",approvalStatus = ApprovalStatus.Approved,User_Approval_Limit=0999999999}
             };
             authorisation.ForEach(s => context.Opwauthorisation2.Add(s));
             context.SaveChanges();

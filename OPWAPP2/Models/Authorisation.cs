@@ -39,7 +39,7 @@ namespace OPWAPP2.Models
         private readonly string user_Name;
         private readonly string user_Password;
         */
-        private const double AutoAppLimit = 1000;
+        private const double AutoAppLimit = 750;
         internal string LoginErrorMessage;
 
         
@@ -81,7 +81,12 @@ namespace OPWAPP2.Models
         // [Range(0, 1000000)]
         public double User_Approval_Limit { get; set; }
 
-        // Navigation fields
+        // Code generated from user selection. Emums co-ordinated above.
+        [Required]
+        [Column("Authorisation status")]
+        public ApprovalStatus approvalStatus { get; set; }
+
+       // Navigation fields
         public ICollection<Work> Building_Works { get; set; }
 
         public Nullable<int> WorkId { get; set; }
@@ -96,6 +101,7 @@ namespace OPWAPP2.Models
             this.User_Password = User_Password;
             this.Company = Company;
             this.Usersect = Usersect;
+            this.approvalStatus = ApprovalStatus.waiting;
             try
             {
                 if (Usersect == User_Section.MandE_Works)
@@ -127,7 +133,7 @@ namespace OPWAPP2.Models
                 else if (Usersect == User_Section.Accommodation)
                 {
                     Usersectcode = User_Section_Code.FMU1;
-                    User_Approval_Limit = 40000;
+                    User_Approval_Limit = 50000;
                 }
             }
             catch (Exception e)

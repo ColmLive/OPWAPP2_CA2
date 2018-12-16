@@ -33,7 +33,7 @@
             @Html.DisplayNameFor(model => model.User_Approval_Limit)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.WorkId)
+            @Html.DisplayNameFor(model => model.approvalStatus)
         </th>
         <th></th>
     </tr>
@@ -62,7 +62,7 @@
             @Html.DisplayFor(modelItem => item.User_Approval_Limit)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.WorkId)
+            @Html.DisplayFor(modelItem => item.approvalStatus)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.User_ID }) |
