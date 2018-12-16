@@ -16,34 +16,43 @@ namespace OPWAPP2.Controllers
     [RoutePrefix("api/WorksApi")]
     public class WorksApiController : ApiController
     {
-        private OPWContext2 db = new OPWContext2();
+        public OPWContext2 db = new OPWContext2();
 
-
+        //GET: api/Works
+        public IEnumerable<Work> Get()
+        {
+            return db.Opwwork2.ToList();
+        }
+        /*
         // GET: api/WorksApi
-        public string GetDeployments()
+        public string GetWorks()
         {
             return ("Use: '/ByID' to returnlist of works");
         }
+        */
+        
+
 
         // GET: api/WorksApi/ByID[ID]
         [Route("ByID/{id}")]
         public IEnumerable<int> GetByKeyWord(int name)
         {
-            int clientID = db.Opwwork2.FirstOrDefault(p => p.Project_ID.Equals(name)).Project_ID;
-            var results = db.Opwwork2.Where(p => p.Project_ID.Equals(clientID));
+            int projectID = db.Opwwork2.FirstOrDefault(p => p.Project_ID.Equals(name)).Project_ID;
+            var results = db.Opwwork2.Where(p => p.Project_ID.Equals(projectID));
             if (results == null)
             {
                 return null;
             }
 
-            List<int> serverList = new List<int>();
+            List<int> worklist = new List<int>();
             foreach (Work d in results)
             {
-                serverList.Add(d.Project_ID);
-                //serverList.Add(d.Project_Desc);
-               // serverList.Add(d.Proj_Act_Cost);
+                worklist.Add(d.Project_ID);
+                //worklist.Add(d.Project_Desc);
+               // worklist.Add(d.Proj_Act_Cost);
             }
-            return serverList;
+            return worklist;
+
         }
     }
 }
