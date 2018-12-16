@@ -10,6 +10,7 @@ namespace OPWAPP2.DAL
         {
         }
 
+        public static object Work { get; internal set; }
         public DbSet<Work> Opwwork2 { get; set; }
         public DbSet<Property> Opwproperty2 { get; set; }
         public DbSet<Authorisation> Opwauthorisation2 { get; set; }
