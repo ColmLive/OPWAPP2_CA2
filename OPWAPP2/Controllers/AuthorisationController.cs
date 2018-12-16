@@ -6,8 +6,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using OPWAPP2.Areas.HelpPage.ModelDescriptions;
-using OPWAPP2.Areas.HelpPage.Models;
 
 namespace OPWAPP2.Controllers
 {
