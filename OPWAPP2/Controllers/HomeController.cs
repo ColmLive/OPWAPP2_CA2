@@ -12,6 +12,11 @@ namespace OPWAPP2.Controllers
             return View();
         }
 
+
+        /// <summary>
+        /// <code></code>
+        /// </summary>
+        /// <returns></returns>
         public ActionResult FAQ()
         {
             ViewBag.Message = "FAQ page for users";

@@ -1,11 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
-using OPWAPP2;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OPWAPP2.Controllers;
+using System.Web.Mvc;
 
 namespace OPWAPP2TestProject
 {
